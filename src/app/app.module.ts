@@ -13,10 +13,24 @@ import {environment} from '../environments/environment'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { from } from 'rxjs';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { LoginComponent } from './pages/login/login.component';
+import { UserinfoComponent } from './pages/userinfo/userinfo.component';
+import { AdminPedidosComponent } from './pages/admin-pedidos/admin-pedidos.component';
+import { AdminProductosComponent } from './pages/admin-productos/admin-productos.component';
+import { AdminCatalogosComponent } from './pages/admin-catalogos/admin-catalogos.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignInComponent,
+    LoginComponent,
+    UserinfoComponent,
+    AdminPedidosComponent,
+    AdminProductosComponent,
+    AdminCatalogosComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
