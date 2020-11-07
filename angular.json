@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Proyecto-Chucherilandia"
+    }
+  },
+  "defaultProject": "Proyecto-Chucherilandia",
+  "cli": {
+    "analytics": false
+  }
 }
