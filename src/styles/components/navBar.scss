@@ -1,0 +1,41 @@
+@import 'src/styles/essentials/variables.scss';
+.navBar{
+    display: flex;
+    
+}
+.navBar-navLinks{
+    box-sizing: border-box;
+    margin:0px;
+    width: 100%;
+    background-color:$red-light;
+    text-decoration: none;
+    font-family: lato,sans-serif;
+    display: flex;
+
+    ul{
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        width: 100%;
+        list-style: none;
+        align-items: center;
+        justify-content: center;
+    }
+    li{
+        height: 100%;
+        font-size: $lato-text;
+        padding: 10px 5%;
+        font-style: normal;
+        font-weight:lighter;
+        text-transform: none;
+        background-color: $red-dark;
+        text-decoration: none;
+        color:#030303;
+        a{
+          color: whitesmoke;  
+          :hover{
+             text-decoration-line: none;
+          }
+        }
+    }
+}

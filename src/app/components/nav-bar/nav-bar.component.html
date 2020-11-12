@@ -1,1 +1,17 @@
-<p>nav-bar works!</p>
+<nav class="navBar">
+  <img class="navBar-logo" src="" alt="logo">
+</nav>
+<nav class="navBar-navLinks">
+  <ul class="navBar-navLinks">
+    <li > <a [routerLink]="['/']"
+      routerLinkActive="router-link-active"> Home</a></li>
+    <li > <a [routerLink]="['/admin']"
+      routerLinkActive="router-link-active"> perfil</a></li>
+    <li > <a [routerLink]="['/admin-pedidos']"
+      routerLinkActive="router-link-active"> pedidos</a></li>
+    <li > <a [routerLink]="['/admin-productos']"
+      routerLinkActive="router-link-active"> productos</a></li>
+    <li > <a [routerLink]="['/admin-catalogos']"
+      routerLinkActive="router-link-active"> catalogo</a></li>
+  </ul>
+</nav>

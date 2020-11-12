@@ -13,9 +13,7 @@ import {environment} from '../environments/environment'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { from } from 'rxjs';
-<<<<<<< HEAD
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-=======
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { LoginComponent } from './pages/login/login.component';
 import { UserinfoComponent } from './pages/userinfo/userinfo.component';
@@ -23,14 +21,11 @@ import { AdminPedidosComponent } from './pages/admin-pedidos/admin-pedidos.compo
 import { AdminProductosComponent } from './pages/admin-productos/admin-productos.component';
 import { AdminCatalogosComponent } from './pages/admin-catalogos/admin-catalogos.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
->>>>>>> 484feddf1d52b8225e10aecc6033f815b4c9dd80
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    NavBarComponent
-=======
+    NavBarComponent,
     SignInComponent,
     LoginComponent,
     UserinfoComponent,
@@ -38,7 +33,6 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     AdminProductosComponent,
     AdminCatalogosComponent,
     HomepageComponent
->>>>>>> 484feddf1d52b8225e10aecc6033f815b4c9dd80
   ],
   imports: [
     BrowserModule,
