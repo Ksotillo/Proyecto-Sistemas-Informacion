@@ -1,12 +1,41 @@
-//Escritorio
+@mixin breakpoint ($point) {
+    @if $point == small-phone{
+        @media all and (max-width: 240px) {
+            @content;
+        }
+    }
+    @else if $point == medium-phone{
+        @media all and (max-width: 480px) {
+            @content;
+        }
+    }
+    @else if $point == large-phone{
+        @media all and (max-width: 560px) {
+            @content;
+        }
+    }
 
+    @else if $point == average-tablet{
+        @media all and (max-width: 736px) {
+            @content;
+        }
+    }
 
+    @else if $point == large-tablet{
+        @media all and (max-width: 980px) {
+            @content;
+        }
+    }
 
+    @else if $point == standard-laptop{
+        @media all and (max-width: 1366px) {
+            @content;
+        }
+    }
 
-//Móvil
-
-
-//Tablet
-
-
-//Misc.
+    @else if $point == hugeWidescreens{
+        @media all and (max-width: 1920px) {
+            @content;
+        }
+    }
+};
