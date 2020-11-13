@@ -30,7 +30,7 @@ export class AuthenticationService {
       { return new Promise((resolve,reject) => {
         this.firebAuth.createUserWithEmailAndPassword(userData.email,userData.password).then((response) => {
           if(response){
-            response.user.updateProfile({displayName: userData.displayName,photoURL: 'src/assets/icons8-customer-Darkened.svg'}).then(() =>{
+            response.user.updateProfile({displayName: userData.displayName,photoURL: 'https://firebasestorage.googleapis.com/v0/b/proyecto-c-c5053.appspot.com/o/icons8-customer-Darkened.svg?alt=media&token=e6d93a77-2e2d-4e1a-93d5-183d6292fe2c'}).then(() =>{
             localStorage.setItem('currentUser',JSON.stringify(response.user));
             }).catch((ERR) => {
               console.log(ERR);
@@ -62,7 +62,7 @@ export class AuthenticationService {
       }
 
     // Authentication Validation
-      public isAuthenticated(): Boolean{
+      public isAuthenticated(): boolean{
         return localStorage.getItem('currentUser') != null;
       }
 
@@ -70,6 +70,12 @@ export class AuthenticationService {
 
       public getCurrentUser(): Observable<firebase.default.User>{
         return this.firebAuth.authState;
+      }
+
+      public isAdmin(): boolean {  
+        const adminArr: Array<string> = ['30258079@correo.unimet.edu.ve', 'alberto.carrillo@correo.unimet.edu.ve' , 'gomez.manuel@correo.unimet.edu.ve']
+        console.log(JSON.parse(localStorage.getItem('currentUser'))['user']['email'])
+        return adminArr.includes(JSON.parse(localStorage.getItem('currentUser'))['user']['email'])
       }
     
     // Logout methods

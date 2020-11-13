@@ -8,6 +8,9 @@
         id="exampleInputName"
         placeholder="Nombre Completo"
         formControlName="name"
+        aria-required="true"
+        minlength="3"
+        maxlength="20"
         >
         <label for = "exampleInputEmail">
             <span>Correo Electrónico:</span>
@@ -16,7 +19,8 @@
         type="email"
         id="exampleInputEmail"
         placeholder="E-Mail"
-        formControlName="email">
+        formControlName="email"
+        aria-required="true">
         <label for = "exampleInputPassword">
             <span>Clave:</span>
         </label>
@@ -25,8 +29,11 @@
         id="exampleInputPassword"
         placeholder="Clave"
         formControlName="password"
+        aria-required="true"
+        minlength="3"
+        maxlength="20"
         >
-        <button type="submit" >Submit</button>
+        <button type="submit" >Crear Cuenta</button>
     </form>
 
     <button (click) = 'googleLogin()'>Iniciar Sesión con Google</button>
