@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Imports de Firebase
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -10,9 +10,9 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 
 import {environment} from '../environments/environment';
 
+//Component Imports
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { from } from 'rxjs';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -37,7 +37,8 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
+    ReactiveFormsModule,
     // Importar las funcionalidades de Firebase:
 
     // Primero se Configura el Modulo Principal

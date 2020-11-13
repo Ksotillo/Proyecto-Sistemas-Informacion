@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div>
+    <form [formGroup]="loginForm" (ngSubmit) = 'onSubmit()'>
+        <label for = "exampleInputEmail">
+            <span>Correo Electrónico:</span>
+        </label>
+        <input        
+        type="email"
+        id="exampleInputEmail"
+        placeholder="E-Mail"
+        formControlName="email">
+        <label for = "exampleInputPassword">
+            <span>Clave:</span>
+        </label>
+        <input
+        type="password"
+        id="exampleInputPassword"
+        placeholder="Clave"
+        formControlName="password"
+        >
+        <button type="submit" >Submit</button>
+    </form>
+    <button (click) = 'googleLogin()'>Iniciar Sesión con Google</button>
+</div>
