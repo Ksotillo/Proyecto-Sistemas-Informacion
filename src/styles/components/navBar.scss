@@ -1,0 +1,102 @@
+@import 'src/styles/essentials/variables.scss';
+.navBar{
+    display: flex;
+    width: 100%;
+    background-color: $red-light;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.navBar-buttons{
+    justify-content: center;
+}
+.navBar nav{
+    display: flex;
+    box-sizing: border-box;
+}
+.navBar-registration{
+    font-family: lato, sans-serif;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: $white;
+    margin: 10px;
+    height: 100%;
+    justify-self: flex-end;
+    text-decoration: none;
+    font-style: normal;
+    color: $black;
+    padding: 10px;
+    box-shadow: 2px 2px $black;
+}
+.navBar-registration:hover{
+    color: $black;
+    text-decoration: none;
+    justify-self: flex-end;
+}
+.navBar-logo{
+    height:50px;
+    width: 50px;
+    margin:5px 20px;
+}
+.navBar-searchBar{
+    box-sizing: border-box;
+    height: 40px;
+   background-color:#f3f3f3;
+   display: flex;
+   justify-self: center;
+   justify-content: space-between;
+   border-radius: 50px;
+   margin-left: 5px;
+   box-sizing: border-box;
+    padding: 0px;
+    background-color: $white;
+    input{
+        background: transparent;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+    img{
+        display: flex;
+        justify-self: flex-end;
+        height: 100%;
+        width: 20%;
+    }
+}
+.navBar-navLinks{
+    box-sizing: border-box;
+    margin:0px;
+    width: 100%;
+    background-color:$red-dark;
+    text-decoration: none;
+    font-family: lato,sans-serif;
+    display: flex;
+
+    ul{
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        width: 100%;
+        list-style: none;
+        align-items: center;
+        justify-content: space-around;
+    }
+    li{
+        height: 100%;
+        font-size: $lato-text;
+        padding: 10px 0px;
+        
+        font-style: normal;
+        font-weight:lighter;
+        text-transform: none;
+        background-color: $red-dark;
+        text-decoration: none;
+        color:$black;
+        a{
+          color: whitesmoke;  
+          :hover{
+             text-decoration-line: none;
+          }
+        }
+    }
+}

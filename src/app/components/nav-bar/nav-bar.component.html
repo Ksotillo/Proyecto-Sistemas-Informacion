@@ -1,1 +1,20 @@
-<p>nav-bar works!</p>
+<nav class="navBar">
+  <a [routerLink]="['/']" routerLinkActive="router-link-active"> <img class="navBar-logo" src="/assets/Isotipo.png" alt="logo"></a>
+  <div class="navBar-searchBar"><input type="text" placeholder="Buscar" > <img src="/assets/icons8-search.svg"></div>
+  <div class="navBar-buttons"><a class="navBar-registration" [routerLink]="['/login']" routerLinkActive="router-link-active"> Iniciar Sesión</a>
+  <a class="navBar-registration" [routerLink]="['/signin']" routerLinkActive="router-link-active">Registrarse</a></div>
+</nav>
+<nav class="navBar-navLinks">
+  <ul class="navBar-navLinks">
+    <li > <a [routerLink]="['/']"
+      routerLinkActive="router-link-active"> Home</a></li>
+    <li > <a [routerLink]="['/userinfo/:userId']"
+      routerLinkActive="router-link-active"> Acerca de Nosotros</a></li>
+    <li > <a [routerLink]="['/admin/petitions']"
+      routerLinkActive="router-link-active"> Categorias</a></li>
+    <li > <a [routerLink]="['/admin/products']"
+      routerLinkActive="router-link-active"> Ofertas del dia</a></li>
+    <li > <a [routerLink]="['/admin/categories']"
+      routerLinkActive="router-link-active"> Contáctanos</a></li>
+  </ul>
+</nav>
