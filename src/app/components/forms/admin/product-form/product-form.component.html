@@ -1,0 +1,79 @@
+<div>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <label for="inputTitle">
+            <span>Nombre del producto:</span>
+        </label>
+        <input
+        required
+        type="text"
+        id="inputTitle"
+        placeholder="Nombre del producto"
+        formControlName="title">
+
+        <label for="inputDescription">
+            <span>Descripción del producto:</span>
+        </label>
+        <input
+        required
+        type="text"
+        id="inputDescription"
+        placeholder="Descripción del producto"
+        formControlName="description">
+
+        <label for="inputPrice">
+            <span>Precio del producto:</span>
+        </label>
+        <input
+        required
+        type="number"
+        id="inputPrice"
+        min = "0"
+        placeholder="Precio del producto"
+        formControlName="price">
+        <label for="inputPrice">
+            <span>$</span>
+        </label>
+
+        <label for="inputWeight">
+            <span>Peso del producto:</span>
+        </label>
+        <input
+        required
+        type="number"
+        id="inputWeight"
+        min = "0"
+        placeholder="Peso del producto"
+        formControlName="weight">
+        <label for="inputWeight">
+            <span>Kg</span>
+        </label>
+
+        <label for="inputStock">
+            <span>Cantidad del producto:</span>
+        </label>
+        <input
+        required
+        type="number"
+        id="inputStock"
+        min = "0"
+        placeholder="Cantidad del producto"
+        formControlName="stock">
+        <label for="inputStock">
+            <span>unidad(es)</span>
+        </label>
+
+        <label for="photoUpload">
+            <span>Seleccione una imagen:</span>
+        </label>
+        <input
+        required
+        type="file"
+        id="photoUpload"
+        accept=".png, .jpg">
+        <input
+        type="hidden"
+        formControlName="image"
+        [value]="imageURL | async">
+    </form>
+    <button type="submit">{{editProduct ? "Actualizar" : "Crear"}}</button>
+</div>

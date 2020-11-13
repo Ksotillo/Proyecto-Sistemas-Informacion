@@ -22,6 +22,7 @@ import { AdminProductosComponent } from './pages/admin-productos/admin-productos
 import { AdminCatalogosComponent } from './pages/admin-catalogos/admin-catalogos.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { InvoiceFormComponent } from './components/forms/admin/invoice-form/invoice-form.component';
+import { ProductFormComponent } from './components/forms/admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { InvoiceFormComponent } from './components/forms/admin/invoice-form/invo
     AdminProductosComponent,
     AdminCatalogosComponent,
     HomepageComponent,
-    InvoiceFormComponent
+    InvoiceFormComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
