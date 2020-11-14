@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Imports de Firebase
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -10,9 +10,9 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 
 import {environment} from '../environments/environment';
 
+//Component Imports
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { from } from 'rxjs';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -22,7 +22,9 @@ import { AdminProductosComponent } from './pages/admin-productos/admin-productos
 import { AdminCatalogosComponent } from './pages/admin-catalogos/admin-catalogos.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CategoriesFormComponent } from './components/forms/admin/categories-form/categories-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InvoiceFormComponent } from './components/forms/admin/invoice-form/invoice-form.component';
+import { ProductFormComponent } from './components/forms/admin/product-form/product-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminProductosComponent,
     AdminCatalogosComponent,
     HomepageComponent,
-    CategoriesFormComponent
+    CategoriesFormComponent,
+    InvoiceFormComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,

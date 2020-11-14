@@ -1,1 +1,22 @@
-<p>userinfo works!</p>
+<div class = 'container'>
+    <div>
+        <img src ="{{user.photoUrl}}">
+    </div>
+</div>
+<table class = 'table table-hover'>
+    <tbody>
+        <tr>
+            <th scope="row">Nombre Completo</th> 
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">E-Mail</th>
+            <td>{{user.email}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-danger" (click) = 'userLogout()' >Cerrar Sesión</button>
+
+<button type="button" class="btn btn-outline-success" *ngIf = "$isAdmin" (click) = 'navigateToAdmin()'>Ir a la vista de Administrador </button>
+

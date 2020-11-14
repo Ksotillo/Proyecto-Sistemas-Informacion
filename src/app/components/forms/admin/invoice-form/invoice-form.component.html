@@ -1,0 +1,45 @@
+<div>
+        <form [formGroup]="invoiceForm" (ngSubmit) = 'onSubmit()'>
+            <label for="exampleInputName">
+                <span>Nombre Completo:</span>
+            </label>
+            <input
+            type="text"
+            id="exampleInputName"
+            placeholder="Cliente"
+            formControlName="name"
+            aria-required="true"
+            >
+            <label for = "exampleInputState">
+                <span>Estado de Envío:</span>
+            </label>
+            <input        
+            type="text"
+            id="exampleInputState"
+            placeholder="Estado"
+            formControlName="currentState"
+            aria-required="true">
+            <label for = "exampleInputState">
+                <span>Estado de Envío:</span>
+            </label>
+            <input        
+            type="text"
+            id="exampleInputState"
+            placeholder="Estado"
+            formControlName="currentState"
+            aria-required="true"
+            >
+            <label for = "exampleInputDelivery">
+                <span>Estado de Envío:</span>
+            </label>
+            <input        
+            type="text"
+            id="exampleInputDelivery"
+            placeholder="Envío"
+            formControlName="delivery"
+            aria-required="true"
+            >
+            <button>Añadir Productos</button>
+            <button type="submit" >Guardar Pedido</button>
+        </form>
+</div>

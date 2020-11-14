@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-userinfo',
   templateUrl: './userinfo.component.html',
@@ -7,9 +8,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserinfoComponent implements OnInit {
 
-  constructor() { }
-
+  
+  constructor(
+    private authenticator: AuthenticationService,
+    private router: Router
+  ) { 
+    console.log(this.authenticator.isAdmin())
+    if (this.authenticator.isAdmin()){
+      this.$isAdmin = true;
+    }
+  }
+    user = {
+      name: '',
+      email: '',
+      photoUrl: ''
+    }
+    $isAdmin: boolean = false;
   ngOnInit(): void {
+    this.authenticator.getCurrentUser().subscribe((items) =>{
+      console.log('I started the auth')
+      if (items){
+        this.user.name = items.displayName;
+        this.user.email = items.email;
+        this.user.photoUrl = items.photoURL;
+      }
+    })
   }
 
+  userLogout(): void{
+      console.log('Going out')
+      this.authenticator.loginOut().then(() => {
+        this.router.navigate(['']);
+      }).catch((ERR) =>{
+        console.log(ERR)
+      })
+  }
+  navigateToAdmin():void{
+      this.router.navigate(['admin/products']);
+  }
 }
