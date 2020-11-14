@@ -21,7 +21,8 @@ import { AdminPedidosComponent } from './pages/admin-pedidos/admin-pedidos.compo
 import { AdminProductosComponent } from './pages/admin-productos/admin-productos.component';
 import { AdminCatalogosComponent } from './pages/admin-catalogos/admin-catalogos.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-
+import { CategoriesFormComponent } from './components/forms/admin/categories-form/categories-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,12 +33,14 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     AdminPedidosComponent,
     AdminProductosComponent,
     AdminCatalogosComponent,
-    HomepageComponent
+    HomepageComponent,
+    CategoriesFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    FormsModule,
+    ReactiveFormsModule,
     // Importar las funcionalidades de Firebase:
 
     // Primero se Configura el Modulo Principal

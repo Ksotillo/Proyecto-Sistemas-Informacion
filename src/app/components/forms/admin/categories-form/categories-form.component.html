@@ -1,0 +1,18 @@
+<div class="formContainer">
+    <form [formGroup]="CategoryForm" (ngSubmit) = "onSubmit()" >
+        <div class="formGroup">
+            <label for="categoryName"> Introduzca el nombre</label>
+            <input type="text"
+            class="formGroup-fomrControl"
+            id="categoryname"
+            placeholder="Introduzca el nombre de la categoría"
+            aria-describedby="nameHelp"
+            formControlName="name" />
+            <small id="nameHelp"> Introduzca un nombre fresco</small>
+
+        </div>
+        <button type="submit" class="btn btn-form">
+            {{ editCategory ? "Update Category" : "Create Category" }}
+        </button>
+    </form>
+</div>
