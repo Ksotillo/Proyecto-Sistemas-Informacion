@@ -1,8 +1,9 @@
 export interface Product {
-    $key? : String;
-    title : String;
-    description : String;
-    price : Number;
-    stock : Number;
-    images : Array<String>;
+    $key? : string;
+    title : string;
+    description : string;
+    price : number;
+    weight: number;
+    stock : number;
+    image : string;
 }

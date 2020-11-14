@@ -21,6 +21,7 @@ import { AdminPedidosComponent } from './pages/admin-pedidos/admin-pedidos.compo
 import { AdminProductosComponent } from './pages/admin-productos/admin-productos.component';
 import { AdminCatalogosComponent } from './pages/admin-catalogos/admin-catalogos.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { ProductFormComponent } from './components/forms/admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     AdminPedidosComponent,
     AdminProductosComponent,
     AdminCatalogosComponent,
-    HomepageComponent
+    HomepageComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
