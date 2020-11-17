@@ -24,6 +24,9 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CategoriesFormComponent } from './components/forms/admin/categories-form/categories-form.component';
 import { InvoiceFormComponent } from './components/forms/admin/invoice-form/invoice-form.component';
 import { ProductFormComponent } from './components/forms/admin/product-form/product-form.component';
+import { ContactanosComponent } from './pages/contactanos/contactanos.component';
+import { SignednavBarComponent } from './components/signednav-bar/signednav-bar.component';
+import { GeneralNavBarComponent } from './components/general-nav-bar/general-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { ProductFormComponent } from './components/forms/admin/product-form/prod
     CategoriesFormComponent,
     InvoiceFormComponent,
     ProductFormComponent,
+    ContactanosComponent,
+    SignednavBarComponent,
+    GeneralNavBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,19 +24,32 @@
             class="formContainer-inputs formContainer-inputs-description"
             id="categoryDescription" 
             placeholder="Description"
+            formControlName="description"
             rows="10"
             cols="80"
              ></textarea>
+             <input class="formContainer-inputs"
+             type="text"
+            class="formContainer-inputs"
+            id="categoryname"
+            placeholder="Introduzca el URL de la imagen"
+            formControlName="image"/>
+            
             </div>
         </div>
-        <button type="submit" class="formContainer-btn-add btn-form">
+        <button type="submit" class="formContainer-btn-add btn-form" (click) = onSubmit()>
             Añadir 
         </button>
+    
         <div class="fomrContainer-subtitle">  productos de esta categoria</div>
         <div class="adminTable-cardSlider">
-        <ul>
+        <ul >
             <!--Hacer ngFor de los productos que son de esta categoria-->
-            <li class="cardSlider-productCard"> </li>
+            <li *ngFor="let category of categories" class="cardSlider-productCard"> <div>
+                 <a [routerLink]="['/categories', categories.$key]"
+            routerLinkActive="router-link-active">{{category.name}} </a>
+            </div>
+            </li>
         </ul>
         </div>
     </form>
@@ -44,8 +57,8 @@
 <div class="adminSide">
 <div class="adminSide-SearchFilters">
     <div class="adminSide-btn">
-        <button class="formContainer-btn-delete">Eliminar</button> 
-        <button class="formContainer-btn-add">Añadir</button></div>
+        <button class="formContainer-btn-delete" (click) = deleteCategory()>Eliminar</button> 
+        <button class="formContainer-btn-add"(click)= updateCategory()>Actualizar</button></div>
     <div class="searchBar categories-searchBar"><input type="text" placeholder="Buscar" > <img src="/assets/icons8-search.svg"></div>
     <div class="adminSide-filters">
         <div class="adminSide-btnContainer"><button type="menu">Categoria</button></div>
@@ -55,7 +68,10 @@
 <div class="adminSide-cardSlider">
     <!--Hacer ngFor de las categorias creadas-->
     <ul>
-        <li> test</li>
+        <li *ngFor="let category of categories"><a class="cardSlider-Link" [routerLink]="['/admin/categories',category.$key]"
+        routerLinkActive="router-link-active"> {{category.name}}</a>
+
+         </li>
     </ul>
 </div>
 </div>

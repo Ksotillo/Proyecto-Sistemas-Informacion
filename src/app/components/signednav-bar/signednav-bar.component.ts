@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+
 @Component({
-  selector: 'nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  selector: 'app-signednav-bar',
+  templateUrl: './signednav-bar.component.html',
+  styleUrls: ['./signednav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class SignednavBarComponent implements OnInit {
 
   constructor(private Auth: AuthenticationService) { }
 

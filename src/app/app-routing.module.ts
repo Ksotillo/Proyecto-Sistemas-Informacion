@@ -32,6 +32,8 @@ const routes: Routes = [
   {path: 'admin/petitions', 
   component: AdminPedidosComponent,
   canActivate: [AdminAuthGuard]},
+  {path: 'admin/categories/:categoryId' , component: AdminCatalogosComponent,
+  canActivate: [AdminAuthGuard]},
   {path: 'admin/categories' , component: AdminCatalogosComponent,
   canActivate: [AdminAuthGuard]
 }

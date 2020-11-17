@@ -22,14 +22,23 @@ export class CategoriesFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {}
-
+  name: string
+  descripton: string
+  categories: Array<Categories>
   ngOnInit(): void {
     this.createForm();
     this.getUrlParams();
+    this.getAllCategories();
   }
 
+  deleteCategory(){
+    this.route.paramMap.subscribe((params) =>{ this.CategoryId = params.get('categoryId');
+  if (this.CategoryId) {
+    this.CategoriesService.deleteCategory(this.CategoryId);
+  }})
+  }
   getUrlParams(): void{
-    this.route.paramMap.subscribe((params) =>{ this.CategoryId = params.get('CategoryId');
+    this.route.paramMap.subscribe((params) =>{ this.CategoryId = params.get('categoryId');
   if(this.CategoryId){
     this.loading = true;
     this.CategoriesService.getCategorieByName(this.CategoryId).subscribe((item)=>{
@@ -39,15 +48,24 @@ export class CategoriesFormComponent implements OnInit {
       };
       this.CategoryForm.patchValue({
         name: this.editCategory.name,
+        description: this.editCategory.name,
+        image: this.editCategory.image
       });
       this.loading = false;
     });
   }
   }
   )}
+  getAllCategories(){
+    this.CategoriesService.getAllCategories().subscribe((items) => 
+    this.categories = items.map((item) =>({...item.payload.doc.data(),
+    $key: item.payload.doc.id } as Categories)));
+  }
  createForm(): void{
    this.CategoryForm = this.fb.group({
      name: [''],
+     description: [''],
+     image: ['']
    })
  }
  createCategory(data: Categories): void{
@@ -56,19 +74,22 @@ export class CategoriesFormComponent implements OnInit {
    this.loading = false;
  })
  }
- updateCategory(data: Categories): void{
+ updateCategory(): void{
+  const dataCategory2: Categories = {
+    name: this.CategoryForm.get('name').value,
+    description: this.CategoryForm.get('description').value,
+    image: this.CategoryForm.get('image').value
+  };
    this.loading = true;
-   this.CategoriesService.updateCategory(data,this.CategoryId).then((res)=>
+   this.CategoriesService.updateCategory(dataCategory2,this.CategoryId).then((res)=>
    this.loading = false)
  }
  onSubmit(): void{
    const dataCategory: Categories = {
      name: this.CategoryForm.get('name').value,
+     description: this.CategoryForm.get('description').value,
+     image: this.CategoryForm.get('image').value
    };
-   if(this.editCategory){
-     this.updateCategory(dataCategory);
-     return;
-   }
    this.createCategory(dataCategory);
  }
 }
