@@ -33,7 +33,8 @@ const routes: Routes = [
   component: AdminPedidosComponent,
   canActivate: [AdminAuthGuard]},
   {path: 'admin/categories' , component: AdminCatalogosComponent,
-  canActivate: [AdminAuthGuard]}
+  canActivate: [AdminAuthGuard]
+}
 ];
 
 @NgModule({

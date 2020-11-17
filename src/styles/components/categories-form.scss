@@ -1,0 +1,123 @@
+.categorias-title{
+    font-size: $lato-subtitle;
+    padding: 20px;
+    font-family: lato, sans-serif;
+}
+.adminTable{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+    font-family: lato,sans-serif;
+}
+.formContainer{
+    display: flex;
+    width: 60%;
+    padding: 5px;
+    border: 1px outset $black;
+    border-radius: 5px;
+    border-style: ridge;
+}
+.adminSide-btnContainer{
+    padding: 5px;
+    button{
+        padding-right: 100px;
+    }
+}
+.formGroup-inputs{
+    display: block;
+}
+.sideBar{
+    width: 25%;
+}
+.adminTable-cardSlider{
+    border: 1px outset $black;
+    border-radius: 5px;
+    width: 100%;
+    padding: 5px;
+    height: 200px;
+    ul{
+        text-decoration: none;
+        list-style: none;
+
+    }
+}
+.adminTable-mainPage{
+    display: flex;
+    justify-content: space-between;
+}
+.fomrContainer-subtitle{
+    padding: 5px;
+}
+.adminSide{
+    
+    width: 35%;
+    border: 1px outset $black;
+    border-radius: 5px;
+    padding: 5px 0px;
+}
+
+.adminSide-btnContainer{
+    width: 100%;
+}
+.adminSide-cardSlider{
+    height: 500px;
+    width: 100%;
+    ul{
+        text-decoration: none;
+        list-style: none;
+    }
+    border-top: 1px outset $black;
+}
+.formContainer-btn-add{
+    border: none;
+    border-radius: 5px;
+    background-color: $orange-dark;
+    color:$black;
+}
+.formContainer-btn-delete{
+   border: none;
+    border-radius: 5px;
+    background-color: $red-dark;
+    color:$white;
+}
+
+.adminSide-btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.formGroup{
+    width: 100%;
+}
+
+.categories-searchBar{
+    width: 95%;
+    border: 1px $black outset;
+}
+.adminSide-SearchFilters{
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+}
+.formContainer-inputs{
+    width: 100%;
+    border: none;
+}
+.formContainer-inputs-description{
+    padding-left: 5px;
+    padding-top: 5px;
+    font-family: lato, sans-serif;
+    justify-content: flex-start;
+    align-items: flex-start;
+    resize: none;
+    width: 100%;
+    border: none;
+    height: 300px;
+}
+.formContainer-title{
+    font-size: $lato-button;
+}
