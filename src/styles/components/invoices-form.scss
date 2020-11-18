@@ -1,0 +1,8 @@
+.invoiceForm-Container{
+    width: 560px;
+    align-items: center;
+    @include breakpoint(large-phone){
+        width: 90vh;
+        margin: 0 5vh;
+    }
+}

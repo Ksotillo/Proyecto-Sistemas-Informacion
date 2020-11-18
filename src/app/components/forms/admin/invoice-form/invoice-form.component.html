@@ -1,45 +1,106 @@
-<div>
-        <form [formGroup]="invoiceForm" (ngSubmit) = 'onSubmit()'>
-            <label for="exampleInputName">
-                <span>Nombre Completo:</span>
-            </label>
-            <input
-            type="text"
-            id="exampleInputName"
-            placeholder="Cliente"
-            formControlName="name"
-            aria-required="true"
-            >
-            <label for = "exampleInputState">
-                <span>Estado de Envío:</span>
-            </label>
-            <input        
-            type="text"
-            id="exampleInputState"
-            placeholder="Estado"
-            formControlName="currentState"
-            aria-required="true">
-            <label for = "exampleInputState">
-                <span>Estado de Envío:</span>
-            </label>
-            <input        
-            type="text"
-            id="exampleInputState"
-            placeholder="Estado"
-            formControlName="currentState"
-            aria-required="true"
-            >
-            <label for = "exampleInputDelivery">
-                <span>Estado de Envío:</span>
-            </label>
-            <input        
-            type="text"
-            id="exampleInputDelivery"
-            placeholder="Envío"
-            formControlName="delivery"
-            aria-required="true"
-            >
-            <button>Añadir Productos</button>
-            <button type="submit" >Guardar Pedido</button>
-        </form>
+<div class=".invoiceForm-Container">
+    <div class = "container-fluid" style="border: 1px outset black; border-radius: 5px; border-style: ridge;">
+            <form [formGroup]="invoiceForm" (ngSubmit) = 'onSubmit()' class="needs-validation">
+                <div class="form-group">
+                    <label for="exampleInputName">
+                        <span>Nombre Completo del Cliente:</span>
+                    </label>
+                    <input
+                    type="text"
+                    id="exampleInputName"
+                    placeholder="Adam Smith"
+                    formControlName="name"
+                    aria-required="true"
+                    class="form-control {{validationResults}}"
+                    formControlName = "clientName"
+                    (input) = 'validateName()'
+                    minlength="3"
+                    required
+                    >
+                    <div class="valid-feedback">
+                        Nombre Valido
+                    </div>
+                    <div class="invalid-feedback">
+                        {{errorMsg1}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" name="saleStatus" id="status1" value="Pendiente" formControlName = "saleStatus">
+                        <label class="custom-control-label" for="status1">Pendiente</label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" name="saleStatus" id="status2" value="Pagada" formControlName = "saleStatus">
+                        <label class="custom-control-label" for="status2">Pagada</label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" name="saleStatus" id="status3" value="Cancelada" formControlName = "saleStatus">
+                        <label class="custom-control-label" for="status3">Cancelada</label>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" name="deliveryMethod" id="delivery1" value="Pickup" formControlName = "deliveryMethod">
+                        <label class="custom-control-label" for="delivery1">Pickup</label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" name="deliveryMethod" id="delivery2" value="Delivery" formControlName = "deliveryMethod">
+                        <label class="custom-control-label" for="delivery2">Delivery</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class = "col-md-3 mb-3" >
+                        <label for="date1" >Fecha de Compra:</label>
+                        <input type="date" class="form-control" name="expeditionDate" id="date1" formControlName= 'expeditionDate'>
+                    </div>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf = 'this.hasError'>
+                    <strong>¡Peligro!</strong> Guarde o descarte el pedido actual antes de añadir un nuevo producto
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click) = 'resetError()'>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            </form>
+            <hr>
+            <p class="h3">Manejo de Bolsitas</p>
+            
+            
+            <hr>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th scope="col">Nombre del Producto:</th>
+                    <th scope="col">Cantidad</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = 'let product of productBags[bagNum - 1].bagContents'>
+                        <td>{{product.productTitle}}</td>
+                        <td>{{product.productAmount}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" aria-label="Previous" *ngIf = 'this.bagNum != 1' (click) = 'goBefore()'>
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link">Bolsa {{this.bagNum}}</a></li>
+                <li class="page-item">
+                  <a class="page-link" aria-label="Next" *ngIf = 'this.bagNum != (this.productBags.length)' (click) = 'goNext()'>
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+              <button type="submit" class="btn btn-outline-success" (click) = addBag()>Nueva Bolsita</button>
+              <hr>
+            <button type="submit" class="btn btn-warning" >Guardar Pedido</button>
+        <hr>
+    </div>
 </div>
