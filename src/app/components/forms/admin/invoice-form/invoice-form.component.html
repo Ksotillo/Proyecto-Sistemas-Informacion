@@ -9,7 +9,6 @@
                     type="text"
                     id="exampleInputName"
                     placeholder="Adam Smith"
-                    formControlName="name"
                     aria-required="true"
                     class="form-control {{validationResults}}"
                     formControlName = "clientName"
@@ -18,7 +17,7 @@
                     required
                     >
                     <div class="valid-feedback">
-                        Nombre Valido
+                        Nombre Válido
                     </div>
                     <div class="invalid-feedback">
                         {{errorMsg1}}
@@ -69,8 +68,63 @@
             </form>
             <hr>
             <p class="h3">Manejo de Bolsitas</p>
-            
-            
+            <form [formGroup]="productForm" class="needs-validation">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                            <label for="exampleInputProduct">
+                                <span>Nombre del Producto a buscar:</span>
+                            </label>
+                            <input
+                            type="text"
+                            id="exampleInputProduct"
+                            name="productName"
+                            placeholder="Toblerones"
+                            aria-required="true"
+                            class="form-control {{validationResults2}}"
+                            formControlName = "productName"
+                            (input) = 'validateProduct()'
+                            >
+                            <div class="valid-feedback">
+                                Nombre de Producto Válido
+                            </div>
+                            <div class="invalid-feedback">
+                                Nombre de Producto No Encontrado
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="exampleInputProductAmount">
+                                    <span>Cantidad del Producto:</span>
+                                </label>
+                                <input
+                                type="number"
+                                id="exampleInputProductAmount"
+                                name="productAmount"
+                                placeholder="0"
+                                aria-required="true"
+                                class="form-control {{validationResults3}}"
+                                formControlName = "productAmount"
+                                (input) = 'validateProduct()'
+                                min="1"
+                                >
+                                <div class="valid-feedback">
+                                    Inventario Suficiente
+                                </div>
+                                <div class="invalid-feedback">
+                                    Inventario Insuficiente
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-primary" (click) = 'addProduct()'>Añadir Producto</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <hr>
             <table class="table table-bordered table-hover">
                 <thead>

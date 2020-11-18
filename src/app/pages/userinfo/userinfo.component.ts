@@ -13,10 +13,7 @@ export class UserinfoComponent implements OnInit {
     private authenticator: AuthenticationService,
     private router: Router
   ) { 
-    console.log(this.authenticator.isAdmin())
-    if (this.authenticator.isAdmin()){
-      this.$isAdmin = true;
-    }
+
   }
     user = {
       name: '',
@@ -31,6 +28,9 @@ export class UserinfoComponent implements OnInit {
         this.user.name = items.displayName;
         this.user.email = items.email;
         this.user.photoUrl = items.photoURL;
+      }
+      if (this.authenticator.isAdmin()){
+        this.$isAdmin = true;
       }
     })
   }

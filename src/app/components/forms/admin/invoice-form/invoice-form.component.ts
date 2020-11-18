@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { PedidosService } from 'src/app/services/admin-crud/pedidos.service';
 import { Invoice } from 'src/app/models/invoice';
 import { Bag } from 'src/app/models/bag';
+import { Product } from 'src/app/models/product';
+import { ProductosService } from 'src/app/services/admin-crud/productos.service';
 
 @Component({
   selector: 'app-invoice-form',
@@ -11,20 +13,26 @@ import { Bag } from 'src/app/models/bag';
 })
 export class InvoiceFormComponent implements OnInit {
   invoiceForm: FormGroup = null;
+  productForm: FormGroup = null;
   @Input() invoice: Invoice;
   validationResults: string = '';
+  validationResults2: string = '';
+  validationResults3: string = '';
   errorMsg1: string = '';
   hasError: boolean = false;
   totalPrice: number;
   productBags: Array<Bag> = [];
   bagNum: number;
+  products: Array<Product> = [];
   constructor(
     private pedidosHelper: PedidosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private productsHelper: ProductosService
   ) { }
 
   ngOnInit(): void {
     this.createForm();
+    this.getProducts();
   }
   createForm():void{
     this.invoiceForm = this.fb.group({
@@ -49,8 +57,44 @@ export class InvoiceFormComponent implements OnInit {
           bagWeight: 0}];
       }
     }
+    this.productForm = this.fb.group({
+      productName:'',
+      productAmount: 1,
+    })
   }
 
+  getProducts(): void {
+    this.productsHelper.getAllProducts().subscribe((response) =>{
+      this.products = response.map((currentProd) => ({
+        ...currentProd.payload.doc.data(),
+        $key : currentProd.payload.doc.id
+      }) as Product)
+      console.log(this.products);
+    });
+  }
+
+
+  addProduct(){
+    const prodName: string = this.productForm.get('productName').value
+    const prodNum: number = this.productForm.get('productAmount').value
+    const expectedProd = this.products.find((prod) => {
+      return prod.title.toLowerCase().trim() == prodName.toLowerCase().trim();
+    })
+    if(expectedProd){
+      if(prodNum <= expectedProd.stock){
+        this.products = this.products.map((prod) => {
+          if(prod.$key != expectedProd.$key){
+            return prod;
+          }
+          expectedProd.stock = expectedProd.stock - prodNum
+          console.log(prod.stock)
+          return prod
+        })
+        this.totalPrice = this.totalPrice + (expectedProd.price * prodNum);
+        this.productBags[this.bagNum - 1].bagContents.push({productTitle: expectedProd.title, productAmount: prodNum});
+      }
+    }
+  }
   onSubmit(){
 
   }
@@ -66,6 +110,29 @@ export class InvoiceFormComponent implements OnInit {
       this.errorMsg1 = '';
     }
   }
+
+  validateProduct(): void{
+    const prodName: string = this.productForm.get('productName').value
+    const prodNum: number = this.productForm.get('productAmount').value
+    const expectedProd = this.products.find((prod) => {
+      return prod.title.toLowerCase().trim() == prodName.toLowerCase().trim();
+    })
+    if(expectedProd){
+      this.validationResults2 = 'is-valid';
+      if(prodNum <= expectedProd.stock){
+        this.validationResults3 = 'is-valid'
+      }
+      else{
+        this.validationResults3 = 'is-invalid'
+      }
+    }
+    else{
+      this.validationResults2 = 'is-invalid';
+      this.validationResults3 = '';
+    }
+  }
+
+
 
   goBefore() : void {
     this.bagNum = this.bagNum - 1
