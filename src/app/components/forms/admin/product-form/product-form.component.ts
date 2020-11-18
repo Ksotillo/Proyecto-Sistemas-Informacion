@@ -18,6 +18,7 @@ export class ProductFormComponent implements OnInit {
   productForm: FormGroup;
   productID: string = '';
   imageURL: Observable<string>;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -29,18 +30,51 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.getURL();
   }
+
+  /*
+  Crea el formulario para crear/editar un producto
+  */
 
   createForm(): void {
     this.productForm = this.fb.group({
       title: [''],
       description: [''],
       price: [0],
-      weight: [0],
+      weight: [0.05],
       stock: [0],
       image: ['']
     });
   }
+
+  /*
+  Crea un producto
+  */
+
+  createProduct(info: Product): void {
+    this.loading = true;
+    this.productService.createProduct(info).then((res) => {
+      this.loading = false;
+      this.router.navigate(['admin/products']);
+    });
+  }
+
+  /*
+  Actualiza un producto
+  */
+
+  updateProduct(info: Product): void {
+    this.loading = true;
+    this.productService.updateProduct(info, this.productID).then((res) => {
+      this.loading = false;
+      this.router.navigate(['admin/products']);
+    });
+  }
+
+  /*
+  Acción que se ejecuta cuando se presiona el botón
+  */
 
   onSubmit(event): void {
     const imageID = Math.random().toString(36).substring(2);
@@ -61,11 +95,41 @@ export class ProductFormComponent implements OnInit {
       }
 
       if (this.editProduct) {
-        //this.updateProduct(dataProduct);
+        this.updateProduct(dataProduct);
         return;
       }
 
-      //this.createProduct(dataProduct);
+      this.createProduct(dataProduct);
     }
+  }
+
+  /*
+  Obtiene un producto a partir de una ruta relativa
+  */
+
+  getURL(): void {
+    this.route.paramMap.subscribe((params) => {
+      this.productID = params.get('product');
+
+      if (this.productID) {
+        this.loading = true;
+        this.productService.getProductByID(this.productID).subscribe((item) => {
+          this.editProduct = {
+            $key: item.payload.id,
+            ...item.payload.data(),
+          };
+
+          this.productForm.patchValue({
+            title: this.editProduct.title,
+            description: this.editProduct.description,
+            price: this.editProduct.price,
+            weight: this.editProduct.weight,
+            stock: this.editProduct.stock,
+            image: this.editProduct.image
+          });
+          this.loading = false;
+        });
+      }
+    });
   }
 }

@@ -31,6 +31,7 @@ import { GeneralNavBarComponent } from './components/general-nav-bar/general-nav
 import { CatalogosComponent } from './components/admin/catalogos/catalogos.component';
 import { AdminSideComponent } from './components/admin/catalogos/admin-side/admin-side.component';
 import { AdminTableComponent } from './components/admin/catalogos/admin-table/admin-table.component';
+import { ProductListComponent } from './components/lists/admin/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { AdminTableComponent } from './components/admin/catalogos/admin-table/ad
     CatalogosComponent,
     AdminSideComponent,
     AdminTableComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
