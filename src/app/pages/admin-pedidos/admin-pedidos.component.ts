@@ -13,10 +13,12 @@ export class AdminPedidosComponent implements OnInit {
   listaPedidos: Array<Invoice>;
   isEditing: boolean = false;
   hasError: boolean = false;
+  readonlyPrompt:string = "readonly";
   constructor(private invoiceHelper: PedidosService) { }
 
   ngOnInit(): void {
     this.getPedidos();
+    
   }
 
 
@@ -53,5 +55,26 @@ export class AdminPedidosComponent implements OnInit {
 
   resetError() : void{
     window.setTimeout(() => {this.hasError = false},200);
+  }
+
+  manageInvoiceBack(invoiceIN : Invoice): void{
+    if(invoiceIN.$key){
+      this.invoiceHelper.updateInvoice(invoiceIN,invoiceIN.$key).then(() => {
+        this.isEditing = false;
+        this.getPedidos();
+      })
+    }
+    else{
+      this.invoiceHelper.createInvoice(invoiceIN).then(() => {
+        this.isEditing = false;
+        this.getPedidos();
+      })
+    }
+   
+  }
+
+  pedidoSelectManager(pedidoIN: Invoice): void{
+    this.currentPedido = pedidoIN;
+    this.isEditing = true;
   }
 }

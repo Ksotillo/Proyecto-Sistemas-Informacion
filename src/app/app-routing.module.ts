@@ -10,12 +10,13 @@ import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 import { UserAuthGuard } from './guards/user-auth.guard';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 import { UnSignedGuard } from './guards/un-signed.guard';
+import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
+import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 
 const routes: Routes = [
   {path: '', 
   component: HomepageComponent,
   },
-  
   {path: 'signin', 
   component: SignInComponent,
   canActivate: [UnSignedGuard]
@@ -29,12 +30,16 @@ const routes: Routes = [
   {path: 'admin/products', 
   component: AdminProductosComponent,
   canActivate: [AdminAuthGuard]},
+  {path: 'admin/products/create', 
+  component: CrearProductosComponent,
+  canActivate: [AdminAuthGuard]},
+  {path: 'admin/products/:product/update', 
+  component: ActualizarProductosComponent,
+  canActivate: [AdminAuthGuard]},
   {path: 'admin/petitions', 
   component: AdminPedidosComponent,
   canActivate: [AdminAuthGuard]},
-  {path: 'admin/categories/:categoryId' , component: AdminCatalogosComponent,
-  canActivate: [AdminAuthGuard]},
-  {path: 'admin/categories' , component: AdminCatalogosComponent,
+  {path: 'admin/categories', component: AdminCatalogosComponent,
   canActivate: [AdminAuthGuard]
 }
 ];

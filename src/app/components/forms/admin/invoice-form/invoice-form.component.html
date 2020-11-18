@@ -1,6 +1,6 @@
 <div class=".invoiceForm-Container">
     <div class = "container-fluid" style="border: 1px outset black; border-radius: 5px; border-style: ridge;">
-            <form [formGroup]="invoiceForm" (ngSubmit) = 'onSubmit()' class="needs-validation">
+            <form [formGroup]="invoiceForm" class="needs-validation">
                 <div class="form-group">
                     <label for="exampleInputName">
                         <span>Nombre Completo del Cliente:</span>
@@ -14,6 +14,7 @@
                     formControlName = "clientName"
                     (input) = 'validateName()'
                     minlength="3"
+                    readonly = {{readVar}}
                     required
                     >
                     <div class="valid-feedback">
@@ -25,17 +26,17 @@
                 </div>
                 <div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" name="saleStatus" id="status1" value="Pendiente" formControlName = "saleStatus">
+                        <input class="custom-control-input" type="radio" name="saleStatus" id="status1" value="Pendiente" formControlName = "saleStatus" readonly = {{readVar}}>
                         <label class="custom-control-label" for="status1">Pendiente</label>
                     </div>
 
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" name="saleStatus" id="status2" value="Pagada" formControlName = "saleStatus">
+                        <input class="custom-control-input" type="radio" name="saleStatus" id="status2" value="Pagada" formControlName = "saleStatus" readonly = {{readVar}}>
                         <label class="custom-control-label" for="status2">Pagada</label>
                     </div>
 
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" name="saleStatus" id="status3" value="Cancelada" formControlName = "saleStatus">
+                        <input class="custom-control-input" type="radio" name="saleStatus" id="status3" value="Cancelada" formControlName = "saleStatus" readonly = {{readVar}}>
                         <label class="custom-control-label" for="status3">Cancelada</label>
                     </div>
 
@@ -43,12 +44,12 @@
 
                 <div class="form-group">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" name="deliveryMethod" id="delivery1" value="Pickup" formControlName = "deliveryMethod">
+                        <input class="custom-control-input" type="radio" name="deliveryMethod" id="delivery1" value="Pickup" formControlName = "deliveryMethod" readonly = {{readVar}}>
                         <label class="custom-control-label" for="delivery1">Pickup</label>
                     </div>
 
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input class="custom-control-input" type="radio" name="deliveryMethod" id="delivery2" value="Delivery" formControlName = "deliveryMethod">
+                        <input class="custom-control-input" type="radio" name="deliveryMethod" id="delivery2" value="Delivery" formControlName = "deliveryMethod" readonly = {{readVar}}>
                         <label class="custom-control-label" for="delivery2">Delivery</label>
                     </div>
                 </div>
@@ -56,7 +57,7 @@
                 <div class="form-group">
                     <div class = "col-md-3 mb-3" >
                         <label for="date1" >Fecha de Compra:</label>
-                        <input type="date" class="form-control" name="expeditionDate" id="date1" formControlName= 'expeditionDate'>
+                        <input type="date" class="form-control" name="expeditionDate" id="date1" formControlName= 'expeditionDate' readonly = {{readVar}}>
                     </div>
                 </div>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf = 'this.hasError'>
@@ -85,6 +86,7 @@
                             class="form-control {{validationResults2}}"
                             formControlName = "productName"
                             (input) = 'validateProduct()'
+                            readonly = {{readVar}}
                             >
                             <div class="valid-feedback">
                                 Nombre de Producto Válido
@@ -110,6 +112,7 @@
                                 formControlName = "productAmount"
                                 (input) = 'validateProduct()'
                                 min="1"
+                                readonly = {{readVar}}
                                 >
                                 <div class="valid-feedback">
                                     Inventario Suficiente
@@ -124,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            
             <hr>
             <table class="table table-bordered table-hover">
                 <thead>
@@ -151,10 +154,16 @@
                     <span aria-hidden="true">&raquo;</span>
                   </a>
                 </li>
-              </ul>
-              <button type="submit" class="btn btn-outline-success" (click) = addBag()>Nueva Bolsita</button>
-              <hr>
-            <button type="submit" class="btn btn-warning" >Guardar Pedido</button>
+                </ul>
+                <button type="submit" class="btn btn-outline-success" (click) = addBag()>Nueva Bolsita</button>
+                <hr>
+                <div *ngIf = 'this.readVar != "readonly"'>              
+                    <button class="btn btn-warning" (click) = 'onSubmit()' >Guardar Pedido</button>
+                </div> 
+                <div *ngIf = 'this.readVar == "readonly"'>              
+                    <button class="btn btn-secondary"  >Guardar Pedido</button>
+                </div> 
+             <h4 class="h4">Precio Total: {{this.totalPrice}}$</h4>
         <hr>
-    </div>
+    </form>
 </div>

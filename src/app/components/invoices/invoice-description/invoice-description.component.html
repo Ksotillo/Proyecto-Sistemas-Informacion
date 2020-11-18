@@ -1,1 +1,9 @@
+<div class="card-header">
+    <h4 class="h5">Cliente: {{pedido.name}}</h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text text-muted">{{pedido.creationDate}}</p>
+    <h5 class="card-title">{{pedido.totalPrice |currency}}</h5>
+    <a  class="btn btn-primary" (click) = 'retornarPedido()'>Ver Pedido</a>
+  </div>
 

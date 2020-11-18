@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Imports de Firebase
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -28,6 +29,12 @@ import { ContactanosComponent } from './pages/contactanos/contactanos.component'
 import { SignednavBarComponent } from './components/signednav-bar/signednav-bar.component';
 import { GeneralNavBarComponent } from './components/general-nav-bar/general-nav-bar.component';
 import { InvoiceDescriptionComponent } from './components/invoices/invoice-description/invoice-description.component';
+import { CatalogosComponent } from './components/admin/catalogos/catalogos.component';
+import { AdminSideComponent } from './components/admin/catalogos/admin-side/admin-side.component';
+import { AdminTableComponent } from './components/admin/catalogos/admin-table/admin-table.component';
+import { ProductListComponent } from './components/lists/admin/product-list/product-list.component';
+import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
+import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +54,12 @@ import { InvoiceDescriptionComponent } from './components/invoices/invoice-descr
     SignednavBarComponent,
     GeneralNavBarComponent,
     InvoiceDescriptionComponent,
+    CatalogosComponent,
+    AdminSideComponent,
+    AdminTableComponent,
+    ProductListComponent,
+    CrearProductosComponent,
+    ActualizarProductosComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,14 @@
 <div class="container" style="margin-top: 3vh;">
 <h1 class="adminView-Title">Gestión de Pedidos</h1>
-<app-invoice-form  [invoice] = 'currentPedido' *ngIf = 'isEditing'></app-invoice-form>
-<app-invoice-description [invoice] = 'currentPedido'  *ngIf = 'isEditing == false'></app-invoice-description>
-
+<div *ngIf = 'this.currentPedido'>
+  <div *ngIf = 'isEditing'>
+    <app-invoice-form  [invoice] = 'currentPedido' [readVar] = '' (invoiceOUT) = 'manageInvoiceBack($event)'></app-invoice-form>
+  </div>
+  <div *ngIf = '!isEditing'>
+    <app-invoice-form  [invoice] = 'currentPedido' [readVar] = 'readonlyPrompt' (invoiceOUT) = 'manageInvoiceBack($event)'></app-invoice-form>
+  </div>
+</div>
 <button class = 'btn btn-success' (click) = 'createNewInvoice()'>Nuevo Pedido</button>
-
 <button class="btn btn-warning" (click) = 'editInvoice()' *ngIf = 'this.currentPedido && !isEditing'>Editar Pedido</button>
 
 <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf = 'this.hasError'>
@@ -12,5 +16,16 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click) = 'resetError()'>
       <span aria-hidden="true">&times;</span>
     </button>
+  </div>
+</div>
+<hr>
+<div *ngIf = '!isEditing'>
+<h3 class="h3">Seleccione el Pedido que desea Visualizar</h3>
+  <div class = "container" >
+    <div class="card-group">
+          <div class="card"  *ngFor = 'let invoice of listaPedidos'>
+            <app-invoice-description [pedido] = 'invoice' (pedidoOUT) = 'pedidoSelectManager($event)'></app-invoice-description>
+          </div>  
+        </div>
   </div>
 </div>

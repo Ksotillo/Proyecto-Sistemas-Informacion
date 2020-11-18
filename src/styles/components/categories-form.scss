@@ -13,7 +13,7 @@
 }
 .formContainer{
     display: flex;
-    width: 60%;
+    width: 80%;
     padding: 5px;
     border: 1px outset $black;
     border-radius: 5px;
@@ -28,28 +28,31 @@
 .adminSide-cardSlider ul{
     margin: 0px;
     padding: 0px;
-    width: 100%;
+    width: 300px;
     overflow-y: scroll;
 
     scroll-behavior: auto;
     contain: unset;
-    li{
+    
+    button{
         color: $black;
         text-decoration: none;
         width: 100%;
         border: 1px outset $black;
         border-top: none;
         padding: 20px 0px;
-        a{
-            width: 100%;
-            color: $black;
-        }
-        a:hover{
-            text-decoration: none;
-            color: $black;
-            cursor: pointer;
-        }
+        cursor: pointer;
     }
+    button:focus{
+        background-color: $orange-light;
+    }
+}
+.btn-holder{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    margin: 0px;
+
 }
 .formGroup-inputs{
     display: block;
@@ -77,8 +80,7 @@
     padding: 5px;
 }
 .adminSide{
-    
-    width: 35%;
+    width: 100%;
     border: 1px outset $black;
     border-radius: 5px;
     padding: 5px 0px;
@@ -143,6 +145,14 @@
     width: 100%;
     border: none;
     height: 300px;
+}
+.ghost{
+    height: 0px;
+    width: 0px;
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+    
 }
 .formContainer-title{
     font-size: $lato-button;

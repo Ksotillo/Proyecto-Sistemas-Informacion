@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Invoice } from 'src/app/models/invoice';
 
 @Component({
@@ -7,10 +7,14 @@ import { Invoice } from 'src/app/models/invoice';
   styleUrls: ['./invoice-description.component.scss']
 })
 export class InvoiceDescriptionComponent implements OnInit {
-  @Input() invoice: Invoice;
+  @Input() pedido: Invoice;
+  @Output() pedidoOUT = new EventEmitter<Invoice>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  retornarPedido(): void{
+    this.pedidoOUT.emit(this.pedido);
+  }
 }

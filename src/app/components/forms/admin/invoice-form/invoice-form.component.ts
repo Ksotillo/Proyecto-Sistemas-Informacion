@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { PedidosService } from 'src/app/services/admin-crud/pedidos.service';
 import { Invoice } from 'src/app/models/invoice';
@@ -15,6 +15,7 @@ export class InvoiceFormComponent implements OnInit {
   invoiceForm: FormGroup = null;
   productForm: FormGroup = null;
   @Input() invoice: Invoice;
+  @Input() readVar: string = '';
   validationResults: string = '';
   validationResults2: string = '';
   validationResults3: string = '';
@@ -24,8 +25,8 @@ export class InvoiceFormComponent implements OnInit {
   productBags: Array<Bag> = [];
   bagNum: number;
   products: Array<Product> = [];
+  @Output() invoiceOUT = new EventEmitter<Invoice>();
   constructor(
-    private pedidosHelper: PedidosService,
     private fb: FormBuilder,
     private productsHelper: ProductosService
   ) { }
@@ -55,6 +56,9 @@ export class InvoiceFormComponent implements OnInit {
         this.productBags = [{
           bagContents : [],
           bagWeight: 0}];
+      }
+      else{
+        this.productBags = this.invoice.products;
       }
     }
     this.productForm = this.fb.group({
@@ -92,11 +96,22 @@ export class InvoiceFormComponent implements OnInit {
         })
         this.totalPrice = this.totalPrice + (expectedProd.price * prodNum);
         this.productBags[this.bagNum - 1].bagContents.push({productTitle: expectedProd.title, productAmount: prodNum});
+        this.productBags[this.bagNum - 1].bagWeight = this.productBags[this.bagNum - 1].bagWeight + (expectedProd.weight * prodNum);
       }
     }
   }
   onSubmit(){
+    this.invoice.name = this.invoiceForm.get('clientName').value;
+    this.invoice.currentState = this.invoiceForm.get('saleStatus').value;
+    this.invoice.deliveryTipe = this.invoiceForm.get('deliveryMethod').value;
+    this.invoice.totalPrice = this.totalPrice;
+    this.invoice.creationDate = this.invoiceForm.get('expeditionDate').value;
+    this.invoice.products = this.productBags;
+    for (const product of this.products) {
+      this.productsHelper.updateProduct(product,product.$key);
+    }
 
+    this.invoiceOUT.emit(this.invoice);
   }
 
   validateName(): void{
