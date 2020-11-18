@@ -10,6 +10,8 @@ import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 import { UserAuthGuard } from './guards/user-auth.guard';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 import { UnSignedGuard } from './guards/un-signed.guard';
+import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
+import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 
 const routes: Routes = [
   {path: '', 
@@ -29,10 +31,10 @@ const routes: Routes = [
   component: AdminProductosComponent,
   canActivate: [AdminAuthGuard]},
   {path: 'admin/products/create', 
-  component: AdminProductosComponent,
+  component: CrearProductosComponent,
   canActivate: [AdminAuthGuard]},
   {path: 'admin/products/:product/update', 
-  component: AdminProductosComponent,
+  component: ActualizarProductosComponent,
   canActivate: [AdminAuthGuard]},
   {path: 'admin/petitions', 
   component: AdminPedidosComponent,

@@ -32,6 +32,8 @@ import { CatalogosComponent } from './components/admin/catalogos/catalogos.compo
 import { AdminSideComponent } from './components/admin/catalogos/admin-side/admin-side.component';
 import { AdminTableComponent } from './components/admin/catalogos/admin-table/admin-table.component';
 import { ProductListComponent } from './components/lists/admin/product-list/product-list.component';
+import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
+import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { ProductListComponent } from './components/lists/admin/product-list/prod
     AdminSideComponent,
     AdminTableComponent,
     ProductListComponent,
+    CrearProductosComponent,
+    ActualizarProductosComponent,
   ],
   imports: [
     BrowserModule,

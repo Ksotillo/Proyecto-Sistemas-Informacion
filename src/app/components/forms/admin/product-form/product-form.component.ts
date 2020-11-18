@@ -41,9 +41,9 @@ export class ProductFormComponent implements OnInit {
     this.productForm = this.fb.group({
       title: [''],
       description: [''],
-      price: [0],
-      weight: [0.05],
-      stock: [0],
+      price: [''],
+      weight: [''],
+      stock: [''],
       image: ['']
     });
   }
@@ -72,25 +72,26 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  /*
-  Acción que se ejecuta cuando se presiona el botón
-  */
-
-  onSubmit(event): void {
+  onUpload(event) {
     const imageID = Math.random().toString(36).substring(2);
     const file = event.target.files[0];
     const filePath = `uploads/product_${imageID}`
     const ref = this.storage.ref(filePath);
     const productImage = this.storage.upload(filePath,file);
     productImage.snapshotChanges().pipe(finalize(() => this.imageURL = ref.getDownloadURL())).subscribe();
+  }
 
-    if (this.productForm.get('image').value !== '') {
+  /*
+  Acción que se ejecuta cuando se presiona el botón
+  */
+
+  onSubmit(): void {
       const dataProduct: Product = {
         title: this.productForm.get('title').value,
         description: this.productForm.get('description').value,
         price: this.productForm.get('price').value,
         weight: this.productForm.get('weight').value,
-        stock: this.productForm.get('price').value,
+        stock: this.productForm.get('stock').value,
         image: this.productForm.get('image').value
       }
 
@@ -100,7 +101,6 @@ export class ProductFormComponent implements OnInit {
       }
 
       this.createProduct(dataProduct);
-    }
   }
 
   /*
