@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Imports de Firebase
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -27,6 +28,9 @@ import { ProductFormComponent } from './components/forms/admin/product-form/prod
 import { ContactanosComponent } from './pages/contactanos/contactanos.component';
 import { SignednavBarComponent } from './components/signednav-bar/signednav-bar.component';
 import { GeneralNavBarComponent } from './components/general-nav-bar/general-nav-bar.component';
+import { CatalogosComponent } from './components/admin/catalogos/catalogos.component';
+import { AdminSideComponent } from './components/admin/catalogos/admin-side/admin-side.component';
+import { AdminTableComponent } from './components/admin/catalogos/admin-table/admin-table.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,9 @@ import { GeneralNavBarComponent } from './components/general-nav-bar/general-nav
     ContactanosComponent,
     SignednavBarComponent,
     GeneralNavBarComponent,
+    CatalogosComponent,
+    AdminSideComponent,
+    AdminTableComponent,
   ],
   imports: [
     BrowserModule,
