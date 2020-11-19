@@ -1,6 +1,6 @@
 <div class="categorias-title"> Gestión de Categorías</div>
 <div class="adminTable">
-    <div class="sideBar"> Aquí va la sideBar</div>
+    <div class="sideBar"><app-side-bar></app-side-bar></div>
 <div class="adminTable-mainPage">
 <app-admin-table [currentCategory] = 'currentCategory'></app-admin-table>
 <app-admin-side (currentCategoryOUT) = 'managecurrentCategory($event)' [categories] = 'categories' ></app-admin-side>

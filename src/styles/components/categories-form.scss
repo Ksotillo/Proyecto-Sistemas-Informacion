@@ -58,6 +58,8 @@
     display: block;
 }
 .sideBar{
+    display: flex;
+    align-items: flex-start;
     width: 25%;
 }
 .adminTable-cardSlider{
