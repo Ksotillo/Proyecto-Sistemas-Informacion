@@ -1,11 +1,11 @@
-<ul class="nav flex-column">
+<ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a class="nav-link active" [routerLink]="['/admin/petitions']">Gestión de pedidos</a>
+      <a class="nav-link {{this.petitionParser}}" [routerLink]="['/admin/petitions']">Gestión de pedidos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/admin/products']">Gestión de productos</a>
+      <a class="nav-link {{this.productParser}}" [routerLink]="['/admin/products']">Gestión de productos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/admin/categories']">Gestión de categorías</a>
+      <a class="nav-link {{this.catalogParser}}" [routerLink]="['/admin/categories']">Gestión de categorías</a>
     </li>
 </ul>
