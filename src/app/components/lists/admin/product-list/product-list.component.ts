@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
 
   deleteProduct(productID: string) {
     this.loading = true;
-    this.productService.deleteProduct(productID).then((response) => {
+    this.productService.deleteProduct(productID).then(() => {
       this.loading = false;
     });
   }

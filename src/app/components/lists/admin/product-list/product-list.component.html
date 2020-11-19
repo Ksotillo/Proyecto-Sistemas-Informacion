@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="container" style="display: flex; justify-content: flex-end;">
+    <button class="btn btn-primary"  [routerLink]="['/admin/products/create']" style="width: 200px;">Crear Producto</button>
+  </div>
   <div style="display: inline-flex;">
     <div class="card" style="width: 18rem;" *ngFor="let product of products">
         <img [src]="product.image" class="card-img-top" [alt]="product.image">
@@ -8,8 +11,8 @@
           <p class="card-text">Precio: ${{product.price}}</p>
           <p class="card-text">Peso: {{product.weight}} Kg</p>
           <p class="card-text">Cantidad: {{product.stock}} unidad(es)</p>
-          <a [routerLink]="['/admin/products', product.$key, 'update']" class="btn btn-info btn-sm" style="width: 100px;">Actualizar</a>
           <button type="button" class="btn btn-danger btn-sm" (click)="deleteProduct(product.$key)" [disabled]="loading" style="width:100px;">Borrar</button>
+          <a [routerLink]="['/admin/products', product.$key, 'update']" class="btn btn-info btn-sm" style="width: 100px;">Actualizar</a>
         </div>
     </div>
   </div>

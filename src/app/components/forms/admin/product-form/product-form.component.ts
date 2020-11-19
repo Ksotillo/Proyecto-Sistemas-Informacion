@@ -43,8 +43,7 @@ export class ProductFormComponent implements OnInit {
       description: [''],
       price: [''],
       weight: [''],
-      stock: [''],
-      image: ['']
+      stock: ['']
     });
   }
 
@@ -66,7 +65,7 @@ export class ProductFormComponent implements OnInit {
 
   updateProduct(info: Product): void {
     this.loading = true;
-    this.productService.updateProduct(info, this.productID).then((res) => {
+    this.productService.updateProduct(info, this.productID).then(() => {
       this.loading = false;
       this.router.navigate(['admin/products']);
     });
@@ -86,24 +85,37 @@ export class ProductFormComponent implements OnInit {
   */
 
   onSubmit(): void {
+    if(this.imageURL) {
+      this.imageURL.subscribe((response) => {
 
-      const dataProduct: Product = {
+        const dataProduct: Product = {
+          title: this.productForm.get('title').value,
+          description: this.productForm.get('description').value,
+          price: this.productForm.get('price').value,
+          weight: this.productForm.get('weight').value,
+          stock: this.productForm.get('stock').value,
+          image: response
+        }
+
+        if (this.editProduct) {
+          this.updateProduct(dataProduct);
+          return;
+        }
+  
+        this.createProduct(dataProduct);
+      });
+    }
+    else if(this.editProduct) {
+      this.editProduct = {
         title: this.productForm.get('title').value,
         description: this.productForm.get('description').value,
         price: this.productForm.get('price').value,
         weight: this.productForm.get('weight').value,
         stock: this.productForm.get('stock').value,
-        image: this.productForm.get('image').value
+        image: this.editProduct.image
       }
-      // console.log(this.productForm.get('image').value)
-      // console.log(dataProduct.image);
-
-      if (this.editProduct) {
-      this.updateProduct(dataProduct);
-      return;
-      }
-
-      this.createProduct(dataProduct);
+      this.updateProduct(this.editProduct)
+    }
   }
 
   /*
@@ -117,6 +129,7 @@ export class ProductFormComponent implements OnInit {
       if (this.productID) {
         this.loading = true;
         this.productService.getProductByID(this.productID).subscribe((item) => {
+
           this.editProduct = {
             $key: item.payload.id,
             ...item.payload.data(),
@@ -128,7 +141,6 @@ export class ProductFormComponent implements OnInit {
             price: this.editProduct.price,
             weight: this.editProduct.weight,
             stock: this.editProduct.stock,
-            image: this.editProduct.image
           });
           this.loading = false;
         });

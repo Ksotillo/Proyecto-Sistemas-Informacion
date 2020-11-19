@@ -1,5 +1,22 @@
 <div class="container" *ngIf="!loading">
+    <h1>{{editProduct ? "Actualizar producto" : "Crear producto"}}</h1>
     <form [formGroup]="productForm">
+        
+        <div class="form-group" *ngIf="!imageURL&&!editProduct" style="margin: 100px;">
+            <h2>[Previsualización]</h2>
+        </div>
+        
+        <div class="form-group" *ngIf="imageURL">
+            <img
+            [src]="imageURL | async"
+            alt="product image">
+        </div>
+
+        <div class="form-group" *ngIf="editProduct&&!imageURL">
+            <img
+            [src]="editProduct.image"
+            alt="product image">
+        </div>
 
         <div class="form-group">
             <label for="inputTitle">
@@ -79,19 +96,16 @@
                 <span>Seleccione una imagen:</span>
             </label>
             <input
+            required
             type="file"
             id="photoUpload"
             accept=".png, .jpg"
             (change)="onUpload($event)">
-            <div>
-                    <input
-                    required
-                    type="hidden"
-                    formControlName="image"
-                    [value]="(imageURL | async)">
-            </div >
         </div>
 
     </form>
-    <button type="submit" (click)="onSubmit()">{{editProduct ? "Actualizar" : "Crear"}}</button>
+    <div class="container" style="display: inline-flex;">
+        <button class="btn btn-danger"  [routerLink]="['/admin/products']" style="width: 100px; margin-left: 20px;">Regresar</button>
+        <button class="btn btn-primary" type="submit" (click)="onSubmit()" style="width: 100px; margin-left: 20px;">{{editProduct ? "Actualizar" : "Crear"}}</button>
+    </div>
 </div>

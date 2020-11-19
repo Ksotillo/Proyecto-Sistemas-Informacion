@@ -35,6 +35,7 @@ import { AdminTableComponent } from './components/admin/catalogos/admin-table/ad
 import { ProductListComponent } from './components/lists/admin/product-list/product-list.component';
 import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
 import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
+import { SideBarComponent } from './components/admin/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ActualizarProductosComponent } from './pages/admin-productos/actualizar
     ProductListComponent,
     CrearProductosComponent,
     ActualizarProductosComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,
