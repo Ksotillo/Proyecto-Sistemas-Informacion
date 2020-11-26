@@ -23,14 +23,15 @@ $purple-lighest:#D5AEC8;
 $purple-light:#C954A0;
 //Hightlights
 
-
+//Font-weights:
+$semibold: 700;
 //Tamaños de Fuentes
 $lato-title: 70px;
 $lato-subtitle:45px;
 $lato-button:36px;
 $lato-text:28px;
 $lato-small-text:16px;
-
+$lato-very-small-text: ($lato-small-text /1.1618);
 $poppins-subtitle: 60px;
 $josefin-text: 40px;
 //Margenes

@@ -1,40 +1,62 @@
-<div>
-    <form [formGroup]="signingUpForm" (ngSubmit) = 'onSubmit()'>
-        <label for="exampleInputName">
-            <span>Nombre Completo:</span>
-        </label>
-        <input
-        type="text"
-        id="exampleInputName"
-        placeholder="Nombre Completo"
-        formControlName="name"
-        aria-required="true"
-        minlength="3"
-        maxlength="20"
-        >
-        <label for = "exampleInputEmail">
-            <span>Correo Electrónico:</span>
-        </label>
-        <input        
-        type="email"
-        id="exampleInputEmail"
-        placeholder="E-Mail"
-        formControlName="email"
-        aria-required="true">
-        <label for = "exampleInputPassword">
-            <span>Clave:</span>
-        </label>
-        <input
-        type="password"
-        id="exampleInputPassword"
-        placeholder="Clave"
-        formControlName="password"
-        aria-required="true"
-        minlength="3"
-        maxlength="20"
-        >
-        <button type="submit" >Crear Cuenta</button>
-    </form>
-
-    <button (click) = 'googleLogin()'>Iniciar Sesión con Google</button>
+<div class="authentication">
+    <div class="authentication-container">
+        <div class="authentication-title">
+            <span>Crear Cuenta</span>
+        </div>
+        <div class="authentication-form">
+            <form [formGroup]="signingUpForm" (ngSubmit) = 'onSubmit()'>
+                <div class="authentication-field">
+                    <label for="exampleInputName">
+                        <span>Nombre Completo:</span>
+                    </label>
+                    <input
+                    type="text"
+                    id="exampleInputName"
+                    placeholder="Nombre Completo"
+                    formControlName="name"
+                    aria-required="true"
+                    minlength="3"
+                    maxlength="20"
+                    class="form-input"
+                    >
+                </div>
+                <div class="authentication-field">
+                    <label for = "exampleInputEmail">
+                        <span>Correo Electrónico:</span>
+                    </label>
+                    <input        
+                    type="email"
+                    id="exampleInputEmail"
+                    placeholder="E-Mail"
+                    formControlName="email"
+                    aria-required="true"
+                    class="form-input">
+                    
+                    
+                </div>
+                <div class="authentication-field">
+                    <label for = "exampleInputPassword">
+                        <span>Clave:</span>
+                    </label>
+                    <input
+                    type="password"
+                    id="exampleInputPassword"
+                    placeholder="Clave"
+                    formControlName="password"
+                    aria-required="true"
+                    minlength="3"
+                    maxlength="20"
+                    class="form-input"
+                    >
+                </div>
+                <div class="auth-genericButton">
+                    <button type="submit" >Crear Cuenta</button>
+                </div>
+            </form>
+        </div>
+        <div class="auth-googleButton">
+            <button (click) = 'googleLogin()'>
+                Iniciar Sesión con Google</button>
+        </div>
+    </div>
 </div>

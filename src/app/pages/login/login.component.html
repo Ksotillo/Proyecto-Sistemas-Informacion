@@ -1,23 +1,40 @@
-<div>
-    <form [formGroup]="loginForm" (ngSubmit) = 'onSubmit()'>
-        <label for = "exampleInputEmail">
-            <span>Correo Electrónico:</span>
-        </label>
-        <input        
-        type="email"
-        id="exampleInputEmail"
-        placeholder="E-Mail"
-        formControlName="email">
-        <label for = "exampleInputPassword">
-            <span>Clave:</span>
-        </label>
-        <input
-        type="password"
-        id="exampleInputPassword"
-        placeholder="Clave"
-        formControlName="password"
-        >
-        <button type="submit" >Submit</button>
-    </form>
-    <button (click) = 'googleLogin()'>Iniciar Sesión con Google</button>
+<div class="authentication">
+    <div class="authentication-container">
+        <div class="authentication-title">
+            <span>Iniciar Sesión</span>
+        </div>
+        <div class="authentication-form">
+            <form [formGroup]="loginForm" (ngSubmit) = 'onSubmit()'>
+                <div class="authentication-field">
+                    <label for = "exampleInputEmail">
+                        <span>Correo Electrónico:</span>
+                    </label>
+                    <input        
+                    type="email"
+                    id="exampleInputEmail"
+                    placeholder="E-Mail"
+                    formControlName="email"
+                    class="form-input">
+                </div>
+                <div class="authentication-field">
+                    <label for = "exampleInputPassword">
+                        <span>Clave:</span>
+                    </label>
+                    <input
+                    type="password"
+                    id="exampleInputPassword"
+                    placeholder="Clave"
+                    formControlName="password"
+                    class="form-input"
+                    >
+                </div>
+                <div class="auth-genericButton">
+                    <button type="submit" >Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+        <div class="auth-googleButton">
+            <button (click) = 'googleLogin()'>Iniciar Sesión con Google</button>
+        </div>
+    </div>
 </div>

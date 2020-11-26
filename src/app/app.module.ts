@@ -36,6 +36,7 @@ import { ProductListComponent } from './components/lists/admin/product-list/prod
 import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
 import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 import { SideBarComponent } from './components/admin/side-bar/side-bar.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { SideBarComponent } from './components/admin/side-bar/side-bar.component
     CrearProductosComponent,
     ActualizarProductosComponent,
     SideBarComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
