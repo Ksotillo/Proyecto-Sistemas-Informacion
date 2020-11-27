@@ -3,4 +3,5 @@ export interface Categories {
     name: string,
     description?: string,
     image?: string,
+    productsIds?: Array<string>
 }

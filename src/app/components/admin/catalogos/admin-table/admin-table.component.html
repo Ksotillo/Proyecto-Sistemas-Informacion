@@ -1,12 +1,12 @@
 <div class="formContainer">
-    <form *ngIf="selected()" [formGroup]="CategoryForm" (ngSubmit) = "onSubmit()" >
+    <form [formGroup]="CategoryForm" (ngSubmit) = "onSubmit()" class="needs-validation">
         <div *ngIf="selected()">
             <div class="btn-holder">
                 <button class=" formContainer-btn-add btn-form" (click)= deselect()> Deseleccionar</button>
-                <div *ngIf="selected()">
-                    <button type="button" class=" formContainer-btn-add btn-form" (click)= showCurrent()> Editar</button>
+                <div >
+                    <button type="button" class=" formContainer-btn-add btn-form" (click)= allowEditing()> Editar</button>
                 </div>
-                <div *ngIf="selected()">
+                <div>
                     <button type="button" class=" formContainer-btn-delete btn-form" (click)= deleteCategory()> Eliminar</button>
                 </div>
                 </div>
@@ -14,20 +14,31 @@
         <div class="formContainer-form">
             <label for="categoryName"></label>
             <div>
-            <div class="formContainer-title">
+            <div class="formContainer-title" >
                 Nombre de la Categoria:
             </div>
-            <input class="formContainer-inputs"
-             type="text"
-            class="formContainer-inputs"
-            id="categoryname"
-            formControlName="name"/>
+            <input 
+            type="text"
+            aria-required="true" 
+            class="form-control {{nameValidation}}"
+            (input)="validateName()"
+            id="exampleInputName"
+            formControlName="name"
+            minlength="3"
+            required
+            />
+            <div class="valid-feedback">
+                Nombre Válido
+            </div>
+            <div class="invalid-feedback">
+                El campo debe tener más de dos caracteres
+            </div>
             <div class="formContainer-title">
                 Descripción:
             </div>
             <textarea
             form="CategoryForm"
-            class="formContainer-inputs formContainer-inputs-description"
+            class="form-control formContainer-inputs formContainer-inputs-description"
             id="categoryDescription" 
             formControlName="description"
             rows="10"
@@ -36,7 +47,7 @@
             </div>
         </div>
         <div class="btn-holder">
-        <button *ngIf="toUpdate" type="submit" class="formContainer-btn-add btn-form">
+        <button type="submit" class="formContainer-btn-add btn-form" *ngIf="selected()">
             Actualizar 
         </button>
         </div>
@@ -50,39 +61,7 @@
             </li>
         </ul>
         </div>
-    </form>
-
-    <form *ngIf="!selected()" [formGroup]="CategoryForm" (ngSubmit) = "onSubmit()" >
-        <div *ngIf="selected()">
-            <button class=" formContainer-btn-add btn-form" (click)= deselect()> Deseleccionar</button>
-        </div>
-        <div class="formContainer-form">
-            <label for="categoryName"></label>
-            <div>
-            <div class="formContainer-title">
-                Nombre de la Categoria:
-            </div>
-            <input class="formContainer-inputs"
-             type="text"
-            class="formContainer-inputs"
-            id="categoryname"
-            placeholder="Nombre"
-            formControlName="name"/>
-            <div class="formContainer-title">
-                Descripción:
-            </div>
-            <textarea
-            form="CategoryForm"
-            class="formContainer-inputs formContainer-inputs-description"
-            id="categoryDescription" 
-            placeholder="Descripción"
-            formControlName="description"
-            rows="10"
-            cols="80"
-             ></textarea>
-            </div>
-        </div>
-        <button type="submit" class="formContainer-btn-add btn-form">
+        <button type="submit" class="formContainer-btn-add btn-form" *ngIf="!selected()">
             Añadir 
         </button>
     </form>

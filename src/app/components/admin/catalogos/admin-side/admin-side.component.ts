@@ -9,16 +9,17 @@ import { Categories } from 'src/app/models/categories';
 })
 export class AdminSideComponent implements OnInit {
 current: Categories;
+selectedToggle: string = ''
 @Output() currentCategoryOUT = new EventEmitter<Categories>();
 @Input() categories: Array<Categories>;
 
-  constructor( ) { }
+  constructor( ) {}
 
   ngOnInit(): void {
   }
   showCurrent(selected: Categories){
-    if(this.currentCategoryOUT){
-    this.currentCategoryOUT.emit(selected);}
+    this.currentCategoryOUT.emit(selected);
     this.current = selected;
+    
   }
 }
