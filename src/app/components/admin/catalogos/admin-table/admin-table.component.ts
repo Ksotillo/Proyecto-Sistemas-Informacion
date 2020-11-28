@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder} from '@angular/forms';
 import { Categories } from 'src/app/models/categories';
+import { Product } from 'src/app/models/product';
 import { CategoriesService } from 'src/app/service/admin-crud/categories.service';
-
 @Component({
   selector: 'app-admin-table',
   templateUrl: './admin-table.component.html',
@@ -16,10 +16,12 @@ export class AdminTableComponent implements OnInit {
   readonly: boolean = false;
   loading: Boolean = false
   CategoryForm: FormGroup;
+  @Input() productsList: Array<Product>;
+  currentCategoryProducts: Array<Product>;
+  productsNotInCurrent: Array<Product>;
   constructor(private fb: FormBuilder,
-    private CategoriesService: CategoriesService) { }
+    private CategoriesService: CategoriesService,) { }
   @Input() currentCategory: Categories =null;
-  @Input() readVar: string = '';
   ngOnInit(): void {
     this.createForm();
   }

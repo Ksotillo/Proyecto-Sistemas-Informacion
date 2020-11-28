@@ -13,7 +13,8 @@
         <!--Hacer ngFor de las categorias creadas-->
         <ul>
             <button type="button" *ngFor="let category of categories"class="cardSlider-Link" (click) = showCurrent(category) >
-            {{category.name}}                  
+            {{category.name}}
+            <div>{{category.name}}</div>                  
             </button>
         </ul>
     </div>

@@ -55,9 +55,16 @@
         <div class="adminTable-cardSlider">
         <ul>
             <!--Hacer ngFor de los productos que son de esta categoria-->
-            <li class="cardSlider-productCard"> <div>
-                 <a> </a>
-            </div>
+            <li class="cardSlider-productCard">
+            <div></div>
+            </li>
+        </ul>
+        <ul>
+            <!--Hacer ngFor de los productos que NO de esta categoria cardSlider-productCard-notIncluded-->
+            <li class="cardSlider-productCard" *ngFor="let product of productsList"> 
+            <div>{{product.title}} {{product.weight}} Kg.</div>
+            <div>{{product.price}}$</div>
+            <div> stock: {{product.stock}}</div>
             </li>
         </ul>
         </div>
