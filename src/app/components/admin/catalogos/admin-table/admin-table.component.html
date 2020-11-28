@@ -2,7 +2,7 @@
     <form [formGroup]="CategoryForm" (ngSubmit) = "onSubmit()" class="needs-validation">
         <div *ngIf="selected()">
             <div class="btn-holder">
-                <button class=" formContainer-btn-add btn-form" (click)= deselect()> Deseleccionar</button>
+                <button type="button" class=" formContainer-btn-add btn-form" (click)= deselect()> Deseleccionar</button>
                 <div >
                     <button type="button" class=" formContainer-btn-add btn-form" (click)= allowEditing()> Editar</button>
                 </div>
@@ -51,25 +51,32 @@
             Actualizar 
         </button>
         </div>
-        <div class="fomrContainer-subtitle">  productos de esta categoria</div>
+        <section class="subtitleContainer">
+        <div class="fomrContainer-subtitle">  Productos incluidos: </div>
+        <div class="fomrContainer-subtitle">  Productos no incluidos: </div>
+        </section>
         <div class="adminTable-cardSlider">
         <ul>
             <!--Hacer ngFor de los productos que son de esta categoria-->
-            <li class="cardSlider-productCard">
-            <div></div>
+            <li class="cardSlider-productCard" *ngFor="let product of currentCategoryProducts">
+                <div>{{product.title}} {{product.weight}} Kg.</div>
+                <div>{{product.price}}$</div>
+                <div> stock: {{product.stock}}</div>
+                <button type="button" class="formContainer-btn-delete" (click) = removeProduct(product)> Eliminar</button>
             </li>
         </ul>
-        <ul>
+        <ul class="cardSlider-productCard-notIncluded">
             <!--Hacer ngFor de los productos que NO de esta categoria cardSlider-productCard-notIncluded-->
-            <li class="cardSlider-productCard" *ngFor="let product of productsList"> 
+            <li class="cardSlider-productCard" *ngFor="let product of productsNotInCurrent"> 
             <div>{{product.title}} {{product.weight}} Kg.</div>
-            <div>{{product.price}}$</div>
+            <div>{{product.price}}</div>
             <div> stock: {{product.stock}}</div>
+            <button type="button" class="formContainer-btn-add" (click)=addProduct(product)> Añadir</button>
             </li>
         </ul>
         </div>
         <button type="submit" class="formContainer-btn-add btn-form" *ngIf="!selected()">
-            Añadir 
+            Crear Categoria 
         </button>
     </form>
 </div>

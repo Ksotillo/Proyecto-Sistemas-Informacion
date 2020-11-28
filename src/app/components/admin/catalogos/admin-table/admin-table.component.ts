@@ -17,8 +17,8 @@ export class AdminTableComponent implements OnInit {
   loading: Boolean = false
   CategoryForm: FormGroup;
   @Input() productsList: Array<Product>;
-  currentCategoryProducts: Array<Product>;
-  productsNotInCurrent: Array<Product>;
+  currentCategoryProducts: Array<Product>=[];
+  productsNotInCurrent: Array<Product>=[];
   constructor(private fb: FormBuilder,
     private CategoriesService: CategoriesService,) { }
   @Input() currentCategory: Categories =null;
@@ -49,6 +49,56 @@ export class AdminTableComponent implements OnInit {
     } else {
       return false;
     }
+  }
+  addProduct(product: Product):void{
+    if (this.currentCategory.productsIds == null) {
+      this.currentCategory.productsIds = [];
+    }
+    this.currentCategory.productsIds.push(product.$key);
+    console.log( this.currentCategory.productsIds)
+    console.log(this.productsNotInCurrent)
+    console.log(this.currentCategoryProducts)
+    this.CategoriesService.updateCategory(this.currentCategory,this.categoryId).then(() =>{
+      this.showCurrentProducts();
+    })
+  }
+  removeProduct(product: Product): void{
+    var newArray: Array<string> = []
+    this.currentCategory.productsIds.filter((value)=> {
+      if (value != product.$key) {
+        newArray.push(value)
+      }});
+    this.currentCategory.productsIds = newArray
+    this.CategoriesService.updateCategory(this.currentCategory,this.categoryId).then(() => 
+    {
+      this.showCurrentProducts();
+    });
+  }
+  showCurrentProducts(){
+    this.productsNotInCurrent = []
+    this.currentCategoryProducts = []
+    //se define un nuevo arreglo donde estarán los productos que NO son de la categoria seleccionada
+    var newArray: Array<Product> = []
+    var arrayofUnincluded : Array<Product> = []
+    this.productsList.forEach((value) => {
+      if (this.currentCategory.productsIds.includes(value.$key)) {
+        this.currentCategoryProducts.push(value)
+      }else{
+        arrayofUnincluded.push(value);
+      }
+    }
+    )
+
+
+    // se genera el arreglo de 
+    if (arrayofUnincluded.length == 0 ) {
+   
+    } else {
+      console.log('YOOOSHA')
+      this.productsNotInCurrent = arrayofUnincluded;
+    }
+    console.log(newArray)
+    console.log(this.currentCategoryProducts)
   }
   allowEditing():void{
     document.getElementById('exampleInputName').removeAttribute("readonly")
@@ -89,6 +139,7 @@ export class AdminTableComponent implements OnInit {
     const dataCategory: Categories = {
       name: this.CategoryForm.get('name').value,
       description: this.CategoryForm.get('description').value,
+      productsIds: [],
     };
     if (this.currentCategory) {
       this.updateCategory();      
@@ -104,8 +155,13 @@ export class AdminTableComponent implements OnInit {
     }
   }
   deselect(){
-    this.nameValidation = '';
+    this.currentCategory = null;
+    this.categoryId = null;
+    this.currentCategoryProducts = [];
+    this.productsNotInCurrent = [];
+    this.nameValidation = '';    
     this.showCurrent();
+    this.allowEditing();
   }
   resetValidation(){
     this.nameValidation = '';
@@ -116,6 +172,8 @@ export class AdminTableComponent implements OnInit {
       this.CategoriesService.deleteCategory(this.currentCategory.$key).then(
         () => this.currentCategory = null)
         this.resetForm();
+        this.currentCategoryProducts = []
+        this.productsNotInCurrent = []
         this.allowEditing();
     }else{
       this.currentCategory = null;

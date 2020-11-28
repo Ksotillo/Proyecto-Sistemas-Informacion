@@ -30,7 +30,7 @@
     justify-content: space-between;
     padding: 0px;
     margin: 0px;
-
+    align-items: center;
 }
 .formGroup-inputs{
     display: block;
@@ -41,16 +41,40 @@
     width: 25%;
 }
 .adminTable-cardSlider{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border: 1px outset $black;
     border-radius: 5px;
     width: 100%;
-    padding: 5px;
+    padding: 0px;
     height: 200px;
     ul{
         text-decoration: none;
         list-style: none;
-
+        padding: 0px;
+        margin: 0px;
+        overflow-y: scroll;
+       scroll-behavior: auto;
+       li:first-child{
+           border-top: none;
+       }
+       li{
+        border-bottom: none;
+        border-left: none;
+        div{
+            padding-left: 5px;
+        }
+       }
     }
+
+}
+.cardSlider-productCard-notIncluded{
+    
+
+}
+.subtitleContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .adminTable-mainPage{
     display: flex;
@@ -104,16 +128,20 @@
     }
 }
 .formContainer-btn-add{
-    border: none;
+    border: 1px ridge $black;
     border-radius: 5px;
     background-color: $orange-dark;
-    color:$black;
+    color:$white;
+    padding: 3px;
+    margin: 1px;
 }
 .formContainer-btn-delete{
-   border: none;
+    border: 1px ridge $black;
     border-radius: 5px;
     background-color: $red-dark;
     color:$white;
+    padding: 3px;
+    margin: 1%;
 }
 
 .adminSide-btn{
@@ -163,4 +191,6 @@
 .formContainer-title{
     font-size: $lato-button;
 }
-.cardSlider-productCard{}
+.cardSlider-productCard{
+    border:  1px $black outset;
+}

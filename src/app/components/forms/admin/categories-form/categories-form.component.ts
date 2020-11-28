@@ -32,10 +32,12 @@ export class CategoriesFormComponent implements OnInit {
   }
   managecurrentCategory(category: Categories){
     this.adminTable.currentCategory = category;
+    this.adminTable.categoryId = category.$key;
     this.adminTable.showCurrent();
     this.adminTable.resetValidation();
     this.adminTable.uneditable();
-  } 
+    this.adminTable.showCurrentProducts();
+  }
 
   getAllCategories(){
     this.CategoriesService.getAllCategories().subscribe((items) => 
@@ -50,4 +52,3 @@ export class CategoriesFormComponent implements OnInit {
   
   }
  }
-
