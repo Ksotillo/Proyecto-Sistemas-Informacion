@@ -51,6 +51,7 @@
    justify-content: space-between;
    border-radius: 50px;
    margin-left: 5px;
+   border: 1px ridge #535353 ;
    box-sizing: border-box;
     padding: 0px;
     background-color: $white;
@@ -59,12 +60,36 @@
         text-decoration: none;
         border: none;
         outline: none;
+        padding-left: 20px;
+
     }
-    img{
-        display: flex;
-        justify-self: flex-end;
+    input:hover{
+        border-image: none;
+    }
+    input:focus{
+        -webkit-border-image: none;
+        border-image: none;
+        background-image: none;
+        list-style-image: none;
+        mask-image: none;
+
+    }
+    button{
+        align-self: flex-end;
+        border-style: none;
+        background: none;
         height: 100%;
         width: 20%;
+        padding-right: 5px;
+    }
+    button:focus{
+        border: none;
+        outline: none;        
+    }
+    button img{
+        
+        height: 100%;
+        width: 100%;
     }
 }
 .navBar-navLinks{
