@@ -24,6 +24,7 @@ export class AdminTableComponent implements OnInit {
   @Input() currentCategory: Categories =null;
   ngOnInit(): void {
     this.createForm();
+    this.productsNotInCurrent = this.productsList;
   }
   createForm(): void{
     this.CategoryForm = this.fb.group({
