@@ -24,9 +24,9 @@ html{
 }
 
 .about-description{
-    display: flex;
     flex-wrap: wrap;
     background-color: $red-light;
+    display: flex;
     width: 100%;
     .about-descriptionImage{
         flex: 1;
@@ -50,7 +50,7 @@ html{
             font-size: $josefin-text;
             @include breakpoint(large-tablet){
                 padding: 1px;
-                text-align: center;
+                
             }
         }
         @include breakpoint(medium-phone) {
