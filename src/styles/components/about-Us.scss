@@ -24,9 +24,9 @@ html{
 }
 
 .about-description{
+    display: flex;
     flex-wrap: wrap;
     background-color: $red-light;
-    display: flex;
     width: 100%;
     .about-descriptionImage{
         flex: 1;
