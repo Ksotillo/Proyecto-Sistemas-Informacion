@@ -1,1 +1,10 @@
-<p>searchresults-table works!</p>
+<ul>
+    searchTable boi
+    <li *ngFor="let item of listToDisplay">
+        <div class="divider-h"></div>
+        <img src= {{item.image}}> 
+        <div class="productTitle"> {{item.title}} </div>
+        <div> Precio: {{item.price}} $</div>
+        <div> Peso: {{item.weight}} Kg</div>
+    </li>
+</ul>

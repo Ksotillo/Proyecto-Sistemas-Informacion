@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-table.component.scss']
 })
 export class FilterTableComponent implements OnInit {
-
+settings: string = ''
   constructor() { }
 
   ngOnInit(): void {

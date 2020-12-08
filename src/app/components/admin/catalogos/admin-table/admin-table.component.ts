@@ -95,7 +95,6 @@ export class AdminTableComponent implements OnInit {
     if (arrayofUnincluded.length == 0 ) {
    
     } else {
-      console.log('YOOOSHA')
       this.productsNotInCurrent = arrayofUnincluded;
     }
     console.log(newArray)
