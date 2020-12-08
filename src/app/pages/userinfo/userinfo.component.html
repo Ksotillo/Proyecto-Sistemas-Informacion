@@ -1,23 +1,33 @@
 <nav-bar></nav-bar>
-<div class = 'container'>
-    <div>
-        <img src ="{{user.photoUrl}}">
+<div class="userProfile">
+    <div class="userProfile-Title">
+        <p>Perfil de Usuario:</p>
+    </div>
+    <div class="personalInfo-Title">
+        <p>Información Personal</p>
+    </div>
+    <div class="personalInfo">
+        <div class="personalInfo-Image">
+            <img [src] = "user.photoUrl" alt="La imagen del usuario">
+        </div>
+        <div class="personalInfo-UserData">
+            <div class="UserData-infoField1">
+                <p><b>Usuario: </b>{{this.user.name}}</p>
+            </div>
+            <div class="UserData-infoField2">
+                <p><b>Correo Electrónico: </b>{{this.user.email}}</p>
+            </div>
+        </div>
     </div>
 </div>
-<table class = 'table table-hover'>
-    <tbody>
-        <tr>
-            <th scope="row">Nombre Completo</th> 
-            <td>{{user.name}}</td>
-        </tr>
-        <tr>
-            <th scope="row">E-Mail</th>
-            <td>{{user.email}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="userButtons">
+    <div class="userButtons-Logout"> 
+        <button  (click) = 'this.userLogout()'>Cerrar Sesión</button>
+    </div>
+    <div *ngIf = 'this.$isAdmin'  class="userButtons-Admin"> 
+        <button  (click)="this.navigateToAdmin()">Ir a la Vista de Administrador</button>
+    </div>
 
-<button type="button" class="btn btn-danger" (click) = 'userLogout()' >Cerrar Sesión</button>
-
-<button type="button" class="btn btn-outline-success" *ngIf = "$isAdmin" (click) = 'navigateToAdmin()'>Ir a la vista de Administrador </button>
-
+</div>
+<div class="currentInvoices">
+</div>
