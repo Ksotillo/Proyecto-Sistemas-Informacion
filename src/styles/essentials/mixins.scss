@@ -26,7 +26,11 @@
             @content;
         }
     }
-
+    @else if $point == standard-desktop{
+        @media all and (max-width: 1280px) {
+            @content;
+        }
+    }
     @else if $point == standard-laptop{
         @media all and (max-width: 1366px) {
             @content;

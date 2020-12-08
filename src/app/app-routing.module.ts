@@ -13,7 +13,11 @@ import { UnSignedGuard } from './guards/un-signed.guard';
 import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
 import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+<<<<<<< HEAD
 import { ExploreComponent } from './pages/explore/explore.component';
+=======
+import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
+>>>>>>> a82c127a4847096a0851e208ea653943ebebef5a
 
 const routes: Routes = [
   {path: '', 
@@ -44,8 +48,12 @@ const routes: Routes = [
   canActivate: [AdminAuthGuard]},
   {path: 'admin/categories', component: AdminCatalogosComponent,
   canActivate: [AdminAuthGuard]},
+<<<<<<< HEAD
   {path: 'explore/:userInput',
   component:ExploreComponent},  
+=======
+  {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]}
+>>>>>>> a82c127a4847096a0851e208ea653943ebebef5a
 ];
 
 @NgModule({
