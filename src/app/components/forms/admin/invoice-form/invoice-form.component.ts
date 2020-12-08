@@ -34,6 +34,9 @@ export class InvoiceFormComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.getProducts();
+    if(this.readVar){
+      this.invoiceForm.disable();
+    }
   }
   createForm():void{
     this.invoiceForm = this.fb.group({
@@ -110,7 +113,6 @@ export class InvoiceFormComponent implements OnInit {
     for (const product of this.products) {
       this.productsHelper.updateProduct(product,product.$key);
     }
-
     this.invoiceOUT.emit(this.invoice);
   }
 
