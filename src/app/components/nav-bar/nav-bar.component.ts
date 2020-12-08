@@ -20,6 +20,7 @@ export class NavBarComponent implements OnInit {
   userInput: string
   results: Array<Object>
   empty: string = ''
+  currentCat: string = 'Todos'
   ngOnInit(): void {
     this.getAllCategories()
     this.getAllProducts()
@@ -29,6 +30,18 @@ export class NavBarComponent implements OnInit {
     this.searchBar = this.fb.group({
       searchBoxContent: '',
     })
+  }
+  selectCat(cat: Categories):void{
+    this.currentCat = cat.name
+    document.getElementById('dropdown-items').classList.remove('show')
+  }
+  toggleFilter():void{
+    if (!document.getElementById('dropdown-items').classList.contains('show')) {
+      document.getElementById('dropdown-items').classList.add('show')
+    } else {
+      document.getElementById('dropdown-items').classList.remove('show')
+      
+    }
   }
   getAllCategories():void{
     this.category.getAllCategories().subscribe((items) => 
@@ -42,7 +55,6 @@ export class NavBarComponent implements OnInit {
     );
   }
   onSubmit(): void{
-
     console.log('test rocket')
     this.userInput = this.searchBar.get('searchBoxContent').value
     console.log(this.userInput)

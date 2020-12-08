@@ -42,12 +42,50 @@
     width: 35px;
     height: 35px;
 }
+.searchBar-dropdown{
+    display: inline-block;
+    width: 100px; 
+    z-index: 1;
+    background-color: $red;
+    border-radius: 50px 0px 0px 50px;
+    border: $red-darkest outset 1px;
+
+}
+nav.dropdown-items{
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none;
+    background-color: $red-dark;
+    color: $white;
+    outline: $black ridge 1px ;
+    margin-top: 5px;
+    box-shadow: inset ;
+    font-family: poppins,sans-serif;
+    div{        
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        padding-left: 10px;
+        font-size: $lato-small-text;
+    }
+    div:hover{
+        cursor: pointer;
+        background-color: $red;
+    }
+    
+}
+nav.show{
+    display: block;
+}
+.searchBar button.dropdown-btn{
+    width: 100%;
+    color: $white;
+    font-family: poppins, sans-serif;
+
+}
 .searchBar{
-    box-sizing: border-box;
     height: 40px;
-   background-color: $white;
    display: flex;
-   justify-self: center;
+   justify-self: flex-end;
    justify-content: space-between;
    border-radius: 50px;
    margin-left: 5px;
@@ -60,20 +98,10 @@
         text-decoration: none;
         border: none;
         outline: none;
-        padding-left: 20px;
+       
 
     }
-    input:hover{
-        border-image: none;
-    }
-    input:focus{
-        -webkit-border-image: none;
-        border-image: none;
-        background-image: none;
-        list-style-image: none;
-        mask-image: none;
-
-    }
+    
     button{
         align-self: flex-end;
         border-style: none;

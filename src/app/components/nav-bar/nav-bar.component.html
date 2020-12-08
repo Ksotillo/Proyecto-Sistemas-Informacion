@@ -1,7 +1,17 @@
 <nav class="navBar">
   <a [routerLink]="['/']" routerLinkActive="router-link-active"> <img class="navBar-logo" src="/assets/Isotipo.png" alt="logo"></a>
-  <div>
+  
   <form [formGroup]="searchBar" (ngSubmit) = "onSubmit()" class="searchBar" >
+    <div class="searchBar-dropdown" >
+      <button type="button" class="dropdown-btn" (click) = toggleFilter()>{{currentCat}}</button>
+      <nav class="dropdown-items" id="dropdown-items">
+        <div *ngFor="let cat of categories" (click) = selectCat(cat)>
+        <a>
+          {{cat.name}}
+        </a>
+      </div>
+      </nav>
+    </div>
     <input type="text"
     autocomplete="off"
     autofocus
@@ -14,9 +24,11 @@
        <img src="/assets/icons8-search.svg">
     </button>
   </form>
-  </div>
-  <div class="navBar-buttons"><a class="navBar-registration" [routerLink]="['/login']" routerLinkActive="router-link-active"> Iniciar Sesión</a>
+  
+  <div class="navBar-buttons" *ngIf="!isAuth()"><a class="navBar-registration" [routerLink]="['/login']" routerLinkActive="router-link-active"> Iniciar Sesión</a>
   <a class="navBar-registration" [routerLink]="['/signin']" routerLinkActive="router-link-active">Registrarse</a></div>
+  <div class="navBar-buttons" *ngIf="isAuth()"><a class="navBar-registration" [routerLink]="['/userinfo/',this.userId]" routerLinkActive="router-link-active"> <img class="signedIcons" src="/assets/icons8-customer.svg" alt="User"> </a>
+    <a class="navBar-registration" [routerLink]="['/']" routerLinkActive="router-link-active"> <img class="signedIcons" src="/assets/icons8-shopping-cart.svg"></a></div>
 </nav>
 <nav class="navBar-navLinks">
   <ul class="navBar-navLinks">
