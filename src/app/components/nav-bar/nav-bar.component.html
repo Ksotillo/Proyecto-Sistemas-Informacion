@@ -28,7 +28,7 @@
   <div class="navBar-buttons" *ngIf="!isAuth()"><a class="navBar-registration" [routerLink]="['/login']" routerLinkActive="router-link-active"> Iniciar Sesión</a>
   <a class="navBar-registration" [routerLink]="['/signin']" routerLinkActive="router-link-active">Registrarse</a></div>
   <div class="navBar-buttons" *ngIf="isAuth()"><a class="navBar-registration" [routerLink]="['/userinfo/',this.userId]" routerLinkActive="router-link-active"> <img class="signedIcons" src="/assets/icons8-customer.svg" alt="User"> </a>
-    <a class="navBar-registration" [routerLink]="['/']" routerLinkActive="router-link-active"> <img class="signedIcons" src="/assets/icons8-shopping-cart.svg"></a></div>
+    <a class="navBar-registration" [routerLink]="['/mycart']" routerLinkActive="router-link-active"> <img class="signedIcons" src="/assets/icons8-shopping-cart.svg"></a></div>
 </nav>
 <nav class="navBar-navLinks">
   <ul class="navBar-navLinks">

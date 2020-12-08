@@ -15,6 +15,7 @@ import { ActualizarProductosComponent } from './pages/admin-productos/actualizar
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 const routes: Routes = [
   {path: '', 
@@ -47,7 +48,8 @@ const routes: Routes = [
   canActivate: [AdminAuthGuard]},
   {path: 'explore/:userInput',
   component:ExploreComponent},  
-  {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]}
+  {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]},
+  {path: 'mycart', component: CartComponent, canActivate: [UserAuthGuard]}
 ];
 
 @NgModule({

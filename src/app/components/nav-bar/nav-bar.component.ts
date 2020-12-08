@@ -17,13 +17,19 @@ export class NavBarComponent implements OnInit {
   products: Array<Product> = []
   categories: Array<Categories>
   searchBar: FormGroup
-  userInput: string = ''
-  results: Array<Product>
+  userId: string;
+  userInput: string
+  results: Array<Object>
   empty: string = ''
   currentCat: string = 'Todos'
   ngOnInit(): void {
     this.getAllCategories()
     this.createForm()
+    this.Auth.getCurrentUser().subscribe((currentUser) => {
+      if(currentUser){
+        this.userId = currentUser.uid;
+      }
+    })
   }
   createForm():void{
     this.searchBar = this.fb.group({

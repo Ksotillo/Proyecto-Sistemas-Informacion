@@ -2,50 +2,33 @@
     <form [formGroup] = "paymentForm" class="needs-validation">
         <div class = "form-group">
             <h2 class="paymentForm-subtitle">Métodos de Pago habilitados:</h2>
-            <div class="custom-control custom-checkbox" *ngIf="paypalEnabled">
-                <input type="checkbox" class="custom-control-input" id="paymentCheck1" formControlName = "paymentCheck1" checked >
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="paymentCheck1" formControlName = "paymentCheck1"  >
                 <label class="custom-control-label" for="paymentCheck1">Paypal</label>
             </div>
-            <div class="custom-control custom-checkbox" *ngIf="!paypalEnabled">
-                <input type="checkbox" class="custom-control-input" id="paymentCheck1" formControlName = "paymentCheck1">
-                <label class="custom-control-label" for="paymentCheck1">Paypal</label>
-            </div>
-            <div class="custom-control custom-checkbox" *ngIf="storepayEnabled">
-                <input type="checkbox" class="custom-control-input" id="paymentCheck2" formControlName = "paymentCheck2" checked >
-                <label class="custom-control-label" for="paymentCheck2">Pago en la Tienda</label>
-            </div>
-            <div class="custom-control custom-checkbox" *ngIf="!storepayEnabled">
-                <input type="checkbox" class="custom-control-input" id="paymentCheck2" formControlName = "paymentCheck2">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="paymentCheck2" formControlName = "paymentCheck2"  >
                 <label class="custom-control-label" for="paymentCheck2">Pago en la Tienda</label>
             </div>
 
-            <div class="custom-control custom-checkbox" *ngIf="transfEnabled">
-                <input type="checkbox" class="custom-control-input" id="paymentCheck3" formControlName = "paymentCheck3"checked>
-                <label class="custom-control-label" for="paymentCheck3">Transferencia</label>
-            </div>
-            <div class="custom-control custom-checkbox" *ngIf="!transfEnabled">
+            <div class="custom-control custom-checkbox" >
                 <input type="checkbox" class="custom-control-input" id="paymentCheck3" formControlName = "paymentCheck3">
                 <label class="custom-control-label" for="paymentCheck3">Transferencia</label>
             </div>
         </div>
         <div class = "form-group">
             <h2 class="paymentForm-subtitle">Métodos de Envío habilitados:</h2>
-            <div class="custom-control custom-checkbox" *ngIf="deliveryEnabled" checked>
+            <div class="custom-control custom-checkbox" >
                 <input type="checkbox" class="custom-control-input" id="deliveryType1" formControlName = "deliveryType1">
                 <label class="custom-control-label" for="deliveryType1">Delivery</label>
             </div>
-            <div class="custom-control custom-checkbox" *ngIf="!deliveryEnabled">
-                <input type="checkbox" class="custom-control-input" id="deliveryType1" formControlName = "deliveryType1">
-                <label class="custom-control-label" for="deliveryType1">Delivery</label>
-            </div>
-            <div class="custom-control custom-checkbox" *ngIf="pickupEnabled">
-                <input type="checkbox" class="custom-control-input" id="deliveryType2" formControlName = "deliveryType2"checked>
-                <label class="custom-control-label" for="deliveryType2">Pickup</label>
-            </div>
-            <div class="custom-control custom-checkbox" *ngIf="!pickupEnabled">
+            <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="deliveryType2" formControlName = "deliveryType2">
                 <label class="custom-control-label" for="deliveryType2">Pickup</label>
             </div>
         </div>
+
+        <button class="btn btn-success" (click) = 'onSubmit()' *ngIf = 'this.paymentForm.enabled' style= 'margin-bottom:10px;'>Guardar Cambios</button>
+        <button class="btn  btn-warning" (click) = 'enableForm()' *ngIf = '!this.paymentForm.enabled' style= 'margin-bottom:10px;'>Editar Métodos de Pago/Envío</button>
     </form>
 </div>

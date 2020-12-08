@@ -42,6 +42,9 @@ import { FilterTableComponent } from './components/explore/filter-table/filter-t
 import { SearchresultsTableComponent } from './components/explore/searchresults-table/searchresults-table.component';
 import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
 import { PaymentManageFormComponent } from './components/forms/admin/payment-manage-form/payment-manage-form.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { PaymentInitComponent } from './pages/payment-init/payment-init.component';
+import { PaymentFinishComponent } from './pages/payment-finish/payment-finish.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,9 @@ import { PaymentManageFormComponent } from './components/forms/admin/payment-man
     SearchresultsTableComponent,
     AdminMethodsComponent,
     PaymentManageFormComponent,
+    CartComponent,
+    PaymentInitComponent,
+    PaymentFinishComponent,
   ],
   imports: [
     BrowserModule,
