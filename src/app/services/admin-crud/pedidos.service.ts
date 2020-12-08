@@ -15,7 +15,6 @@ import { Observable } from 'rxjs';
 })
 export class PedidosService {
   private invoiceCollection: AngularFirestoreCollection<Invoice>;
-
   constructor(private dataBase: AngularFirestore) { 
     this.invoiceCollection = this.dataBase.collection<Invoice>('invoices');
   }

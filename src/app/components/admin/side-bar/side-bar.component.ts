@@ -12,6 +12,7 @@ export class SideBarComponent implements OnInit {
   petitionParser: string = '';
   productParser: string = '';
   catalogParser: string = '';
+  buyParser: string = '';
   ngOnInit(): void {
     this.currentRoute = this.route.url.slice(7)
     switch (this.currentRoute) {
@@ -24,8 +25,8 @@ export class SideBarComponent implements OnInit {
       case 'categories':
           this.catalogParser = 'active'
           break;
-    
-      
+      case 'methods':
+        this.buyParser = 'active';      
     }
   }
 

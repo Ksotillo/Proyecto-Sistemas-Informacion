@@ -37,6 +37,8 @@ import { CrearProductosComponent } from './pages/admin-productos/crear-productos
 import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 import { SideBarComponent } from './components/admin/side-bar/side-bar.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
+import { PaymentManageFormComponent } from './components/forms/admin/payment-manage-form/payment-manage-form.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     ActualizarProductosComponent,
     SideBarComponent,
     AboutUsComponent,
+    AdminMethodsComponent,
+    PaymentManageFormComponent,
   ],
   imports: [
     BrowserModule,

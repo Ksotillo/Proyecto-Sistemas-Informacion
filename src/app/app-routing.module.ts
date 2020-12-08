@@ -13,6 +13,7 @@ import { UnSignedGuard } from './guards/un-signed.guard';
 import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
 import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
 
 const routes: Routes = [
   {path: '', 
@@ -42,8 +43,8 @@ const routes: Routes = [
   component: AdminPedidosComponent,
   canActivate: [AdminAuthGuard]},
   {path: 'admin/categories', component: AdminCatalogosComponent,
-  canActivate: [AdminAuthGuard]}
-  
+  canActivate: [AdminAuthGuard]},
+  {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]}
 ];
 
 @NgModule({
