@@ -5,6 +5,7 @@
     background-color: $red-light;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 1px 5px 5px #777777;
 
 }
 .navBar-buttons{
@@ -52,11 +53,10 @@
 
 }
 nav.dropdown-items{
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 15px $red;
     display: none;
     background-color: $red-dark;
     color: $white;
-    outline: $black ridge 1px ;
     margin-top: 5px;
     box-shadow: inset ;
     font-family: poppins,sans-serif;
@@ -66,11 +66,15 @@ nav.dropdown-items{
         padding: 5px;
         padding-left: 10px;
         font-size: $lato-small-text;
+        transition: background-color;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in-out;
+        &:hover{
+            cursor: pointer;
+            background-color: darken($color: $red-light, $amount: 10)
+        };
     }
-    div:hover{
-        cursor: pointer;
-        background-color: $red;
-    }
+    
     
 }
 nav.show{
@@ -83,6 +87,7 @@ nav.show{
 
 }
 .searchBar{
+    box-shadow: 0px 2px 3px 3px $red;
     height: 40px;
    display: flex;
    justify-self: flex-end;
@@ -121,14 +126,11 @@ nav.show{
     }
 }
 .navBar-navLinks{
-    box-sizing: border-box;
-    margin:0px;
-    width: 100%;
+    box-sizing: border-box; 
     background-color:$red-dark;
     text-decoration: none;
     font-family: lato,sans-serif;
-    display: flex;
-
+    box-shadow: 0px 3px 15px $red;
     ul{
         padding: 0px;
         margin: 0px;

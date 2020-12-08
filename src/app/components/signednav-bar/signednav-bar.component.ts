@@ -32,4 +32,10 @@ export class SignednavBarComponent implements OnInit {
   isAuth(): boolean{
     return this.Auth.isAuthenticated();
   }
+  onSubmit():void{
+
+  }
+  toggleFilter():void{
+    
+  }
 }
