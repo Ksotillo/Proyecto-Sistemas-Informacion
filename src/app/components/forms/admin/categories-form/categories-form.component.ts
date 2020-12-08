@@ -32,7 +32,7 @@ export class CategoriesFormComponent implements OnInit {
   }
   managecurrentCategory(category: Categories){
     this.adminTable.currentCategory = category;
-    this.adminTable.categoryId = category.$key;
+    this.adminTable.categoryId = category.$key
     this.adminTable.showCurrent();
     this.adminTable.resetValidation();
     this.adminTable.uneditable();

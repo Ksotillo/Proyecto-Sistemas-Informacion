@@ -13,6 +13,7 @@ import { UnSignedGuard } from './guards/un-signed.guard';
 import { CrearProductosComponent } from './pages/admin-productos/crear-productos/crear-productos.component';
 import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ExploreComponent } from './pages/explore/explore.component';
 import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
 
 const routes: Routes = [
@@ -44,6 +45,8 @@ const routes: Routes = [
   canActivate: [AdminAuthGuard]},
   {path: 'admin/categories', component: AdminCatalogosComponent,
   canActivate: [AdminAuthGuard]},
+  {path: 'explore/:userInput',
+  component:ExploreComponent},  
   {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]}
 ];
 

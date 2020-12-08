@@ -5,6 +5,7 @@
     background-color: $red-light;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 1px 5px 5px #777777;
 
 }
 .navBar-buttons{
@@ -42,15 +43,58 @@
     width: 35px;
     height: 35px;
 }
+.searchBar-dropdown{
+    display: inline-block;
+    width: 100px; 
+    z-index: 1;
+    background-color: $red;
+    border-radius: 50px 0px 0px 50px;
+    border: $red-darkest outset 1px;
+
+}
+nav.dropdown-items{
+    box-shadow: 0px 3px 15px $red;
+    display: none;
+    background-color: $red-dark;
+    color: $white;
+    margin-top: 5px;
+    box-shadow: inset ;
+    font-family: poppins,sans-serif;
+    div{        
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        padding-left: 10px;
+        font-size: $lato-small-text;
+        transition: background-color;
+        transition-duration: 0.25s;
+        transition-timing-function: ease-in-out;
+        &:hover{
+            cursor: pointer;
+            background-color: darken($color: $red-light, $amount: 10)
+        };
+    }
+    
+    
+}
+nav.show{
+    display: block;
+}
+.searchBar button.dropdown-btn{
+    width: 100%;
+    color: $white;
+    font-family: poppins, sans-serif;
+
+}
 .searchBar{
-    box-sizing: border-box;
+    box-shadow: 0px 2px 3px 3px $red;
     height: 40px;
-   background-color: $white;
    display: flex;
-   justify-self: center;
+   justify-self: flex-end;
    justify-content: space-between;
    border-radius: 50px;
    margin-left: 5px;
+   border: 1px ridge #535353 ;
    box-sizing: border-box;
     padding: 0px;
     background-color: $white;
@@ -59,23 +103,34 @@
         text-decoration: none;
         border: none;
         outline: none;
+       
+
     }
-    img{
-        display: flex;
-        justify-self: flex-end;
+    
+    button{
+        align-self: flex-end;
+        border-style: none;
+        background: none;
         height: 100%;
         width: 20%;
+        padding-right: 5px;
+    }
+    button:focus{
+        border: none;
+        outline: none;        
+    }
+    button img{
+        
+        height: 100%;
+        width: 100%;
     }
 }
 .navBar-navLinks{
-    box-sizing: border-box;
-    margin:0px;
-    width: 100%;
+    box-sizing: border-box; 
     background-color:$red-dark;
     text-decoration: none;
     font-family: lato,sans-serif;
-    display: flex;
-
+    box-shadow: 0px 3px 15px $red;
     ul{
         padding: 0px;
         margin: 0px;

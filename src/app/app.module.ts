@@ -37,6 +37,9 @@ import { CrearProductosComponent } from './pages/admin-productos/crear-productos
 import { ActualizarProductosComponent } from './pages/admin-productos/actualizar-productos/actualizar-productos.component';
 import { SideBarComponent } from './components/admin/side-bar/side-bar.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ExploreComponent } from './pages/explore/explore.component';
+import { FilterTableComponent } from './components/explore/filter-table/filter-table.component';
+import { SearchresultsTableComponent } from './components/explore/searchresults-table/searchresults-table.component';
 import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
 import { PaymentManageFormComponent } from './components/forms/admin/payment-manage-form/payment-manage-form.component';
 
@@ -66,6 +69,9 @@ import { PaymentManageFormComponent } from './components/forms/admin/payment-man
     ActualizarProductosComponent,
     SideBarComponent,
     AboutUsComponent,
+    ExploreComponent,
+    FilterTableComponent,
+    SearchresultsTableComponent,
     AdminMethodsComponent,
     PaymentManageFormComponent,
   ],
