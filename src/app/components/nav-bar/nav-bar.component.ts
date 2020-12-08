@@ -17,6 +17,7 @@ export class NavBarComponent implements OnInit {
   products: Array<Product>
   categories: Array<Categories>
   searchBar: FormGroup
+  userId: string;
   userInput: string
   results: Array<Object>
   empty: string = ''
@@ -25,6 +26,11 @@ export class NavBarComponent implements OnInit {
     this.getAllCategories()
     this.getAllProducts()
     this.createForm()
+    this.Auth.getCurrentUser().subscribe((currentUser) => {
+      if(currentUser){
+        this.userId = currentUser.uid;
+      }
+    })
   }
   createForm():void{
     this.searchBar = this.fb.group({
