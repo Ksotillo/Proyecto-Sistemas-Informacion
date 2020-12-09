@@ -6,11 +6,14 @@
     <div *ngIf = 'currentCart'>
         <div class="cartDescription" *ngIf = 'this.currentCart.totalPrice != 0'>
             <div class="cartBagView-List">
-                <app-cart-bag-view [cartBags] = 'currentCart.products'></app-cart-bag-view>
+                <app-cart-bag-view *ngFor="let bag of currentCart.products" [cartBag] = 'bag' [allBags] = 'currentCart.products' (bagOUT) = 'bagOutManager($event)'></app-cart-bag-view>
             </div>
             <div class="cartProductView">
                 <app-cart-product-view [bagToShow] = 'currentBag'></app-cart-product-view>
             </div>
+        </div>
+        <div class="cart-genericButton">
+            <button (click) = 'goToCheckout()'>Comprar</button>
         </div>
         <div class="errorMessage" *ngIf = 'this.currentCart.totalPrice == 0' >
             <div class="errorMessage-Image">
