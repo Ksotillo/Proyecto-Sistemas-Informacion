@@ -33,7 +33,7 @@ export class ExploreComponent implements OnInit {
   showAllProducts(){
   }
   displayProducts():void{
-    
+    this.listToDisplay = []
     this.productService.getAllProducts().subscribe((items) => 
     this.listToDisplay = items.map((item) =>({...item.payload.doc.data(),
     $key: item.payload.doc.id } as Product)).filter((elem) =>{
@@ -60,7 +60,8 @@ export class ExploreComponent implements OnInit {
                 }
           
               }
-              })
+              }
+              );
             }}
           )
         })

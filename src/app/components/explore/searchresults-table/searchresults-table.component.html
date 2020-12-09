@@ -1,10 +1,16 @@
-<ul>
-    searchTable boi
+<ul class="searchResults">
+    <p class="searchResults-productTitle searchResults-response" *ngIf="noResults()"> No se encontraron resultados...</p>
+    <p class="searchResults-productTitle searchResults-response" *ngIf="!noResults()"> Resultados de Busqueda: </p>
+    <div class="divider-h"></div>
     <li *ngFor="let item of listToDisplay">
-        <div class="divider-h"></div>
+    <button>
         <img src= {{item.image}}> 
-        <div class="productTitle"> {{item.title}} </div>
+        <div class="searchResults-description">
+        <div class="searchResults-productTitle"> {{item.title}} </div>
         <div> Precio: {{item.price}} $</div>
         <div> Peso: {{item.weight}} Kg</div>
+        </div>
+    </button>
+    <div class="divider-h"></div>
     </li>
 </ul>

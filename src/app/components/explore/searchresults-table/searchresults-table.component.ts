@@ -12,5 +12,12 @@ export class SearchresultsTableComponent implements OnInit {
   @Input() listToDisplay: Array<Product>
   ngOnInit(): void {
   }
-
+  noResults():boolean{
+    try {
+      return this.listToDisplay.length == 0;  
+    } catch (error) {
+      return false
+    }
+    
+  }
 }

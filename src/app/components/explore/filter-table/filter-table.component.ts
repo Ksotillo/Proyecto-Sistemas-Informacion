@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'filter-table',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-table.component.scss']
 })
 export class FilterTableComponent implements OnInit {
-settings: string = ''
+@Input() category: string
+  settings: string = ''
   constructor() { }
 
   ngOnInit(): void {
