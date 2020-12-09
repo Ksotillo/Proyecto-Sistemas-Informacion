@@ -1,3 +1,29 @@
 <nav-bar></nav-bar>
-
+<div class="cartBody">
+    <div class="cartTitle">
+        <p>Carrito de Compra:</p>
+    </div>
+    <div *ngIf = 'currentCart'>
+        <div class="cartDescription" *ngIf = 'this.currentCart.totalPrice != 0'>
+            <div class="cartBagView-List">
+                <app-cart-bag-view [cartBags] = 'currentCart.products'></app-cart-bag-view>
+            </div>
+            <div class="cartProductView">
+                <app-cart-product-view [bagToShow] = 'currentBag'></app-cart-product-view>
+            </div>
+        </div>
+        <div class="errorMessage" *ngIf = 'this.currentCart.totalPrice == 0' >
+            <div class="errorMessage-Image">
+                <img src="/assets/icons8-poison.svg" alt="PoisonImage">
+            </div>
+            <div class="errorMessage-Text">
+                <p>¡Carrito Vacío!</p>
+            </div>
+            <div class="errorMessage-Prompt">
+                <button (click) = 'routeToExplore()'>Llenar Carrito</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
 

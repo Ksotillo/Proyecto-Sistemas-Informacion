@@ -45,6 +45,9 @@ import { PaymentManageFormComponent } from './components/forms/admin/payment-man
 import { CartComponent } from './pages/cart/cart.component';
 import { PaymentInitComponent } from './pages/payment-init/payment-init.component';
 import { PaymentFinishComponent } from './pages/payment-finish/payment-finish.component';
+import { CartBagViewComponent } from './components/cart-bag-view/cart-bag-view.component';
+import { CartProductViewComponent } from './components/cart-product-view/cart-product-view.component';
+import { CartProductViewElementComponent } from './components/cart-product-view-element/cart-product-view-element.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +83,9 @@ import { PaymentFinishComponent } from './pages/payment-finish/payment-finish.co
     CartComponent,
     PaymentInitComponent,
     PaymentFinishComponent,
+    CartBagViewComponent,
+    CartProductViewComponent,
+    CartProductViewElementComponent,
   ],
   imports: [
     BrowserModule,

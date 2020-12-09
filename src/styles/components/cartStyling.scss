@@ -1,0 +1,121 @@
+.cartBody{
+    margin-top: 3vh;
+    box-sizing: border-box;
+}
+
+.cartTitle{
+    width: 100%;
+    text-align: center;
+    font-family: lato,sans-serif;
+    font-size: $lato-title;
+    @include breakpoint(average-tablet){
+        font-size: $lato-subtitle;
+    }
+}
+.currentCart{
+    margin-top: 3vh;
+    display: flex;
+}
+
+.cartDescription{
+    margin-top: 2.5vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cartBagView-List{
+    flex: 1;
+}
+.cartProductView{
+    padding: 5%;
+    flex:3;
+}
+.productView-productCard{
+    margin: 5px 0;
+    border-top: solid 5px $lighter-gray;
+    border-bottom:solid 5px $lighter-gray;
+    border-radius: 15px;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5%;
+    .productCard-imageCon{
+        overflow: hidden;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        height: 100%;
+        img{
+            width: 100%;
+            background-color: $white;
+        }
+    }
+    .productCard-textDescription{
+        width: 100%;
+        margin-left: 10%;
+        font-family: lato,sans-serif;
+        .textDescription-productTitle{
+            font-size: $lato-subtitle;
+        }
+        .textDescription-productInfo{
+            font-size: $lato-text;
+        }
+    }
+}
+
+
+
+
+
+.errorMessage{
+    
+    .errorMessage-Image{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 40%;
+            @include breakpoint(average-tablet){
+                width: 75%;
+            }
+        }
+    }
+    .errorMessage-Text{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10vh 0;
+        p{
+            font-family: lato,sans-serif;
+            font-size: $lato-subtitle;
+            @include breakpoint(average-tablet){
+                font-size: $lato-button;
+            }
+            @include breakpoint(large-phone){
+                font-size: $lato-text;
+            }
+        }
+    }
+    .errorMessage-Prompt{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        button{
+            width: 75%;
+            font-family: lato,sans-serif;
+            font-size: $lato-subtitle;
+            border: black,solid,2px;
+            background-color: $red;
+            filter: drop-shadow(0px 2px 4px #000);
+            @include breakpoint(average-tablet){
+                font-size: $lato-button;
+            }
+            @include breakpoint(large-phone){
+                font-size: $lato-text;
+            }
+        }   
+    }
+}

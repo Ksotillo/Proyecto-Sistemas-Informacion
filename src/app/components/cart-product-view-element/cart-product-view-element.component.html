@@ -1,0 +1,15 @@
+<div class="productView-productCard" *ngIf="this.productToShowDetails">
+    <div class="productCard-imageCon">
+        <img [src]="productToShowDetails.image" alt="Imagen del Producto">
+    </div>
+    <div class="productCard-textDescription">
+        <div class = 'textDescription-productTitle'>
+            <p>{{this.productToShowDetails.title}}</p>
+        </div>
+        <div class="textDescription-productInfo">
+            <p>Precio Unitario: {{this.productToShowDetails.price}}$</p>
+            <p>Unidades Deseadas: {{this.productToShow.productAmount}}</p>
+            <p>Precio Total: {{this.productToShow.productAmount * productToShowDetails.price}}$</p>
+        </div>
+    </div>
+</div>

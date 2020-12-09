@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Bag } from 'src/app/models/bag';
 import { Cart } from 'src/app/models/cart';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CartManageService } from 'src/app/services/cart-manage.service';
@@ -11,14 +13,15 @@ import { CartManageService } from 'src/app/services/cart-manage.service';
 export class CartComponent implements OnInit {
   currentUserId: string;
   currentCart: Cart;
+  currentBag: Bag;
   allCarts: Array<Cart> = [];
-  constructor(private authHelper: AuthenticationService, private cartHelper: CartManageService) { }
+  constructor(private authHelper: AuthenticationService, private cartHelper: CartManageService, private routeHelp: Router) { }
 
   ngOnInit(): void {
     this.getCart();
   }
 
-  getCart(){
+  getCart(): void{
     this.authHelper.getCurrentUser().subscribe((currentUser) => {
       this.currentUserId = currentUser.uid;
         this.cartHelper.getAllCArts().subscribe((response) => {
@@ -32,9 +35,11 @@ export class CartComponent implements OnInit {
           })
 
           if(possibleCart){
+            console.log("Encontré un Carrito");
             this.currentCart = possibleCart;
           }
           else{
+            console.log("Creé un Carrito");
             this.currentCart = {
               userId: this.currentUserId,
               totalPrice: 0,
@@ -44,7 +49,12 @@ export class CartComponent implements OnInit {
               console.log(ERR);
             })
           }
+          this.currentBag = this.currentCart.products[0];
         } )
     })
+  }
+
+  routeToExplore(): void{
+    this.routeHelp.navigateByUrl("/explore/")
   }
 }
