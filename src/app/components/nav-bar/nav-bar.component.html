@@ -34,8 +34,8 @@
   <ul class="navBar-navLinks">
     <li > <a [routerLink]="['/']" routerLinkActive="router-link-active"> Home</a></li>
     <li > <a [routerLink]="['/aboutUs']" routerLinkActive="router-link-active"> Acerca de Nosotros</a></li>
-    <li > <a [routerLink]="['/explore', empty]" routerLinkActive="router-link-active"> Explorar</a></li>
-    <li > <a [routerLink]="['/admin/products']" routerLinkActive="router-link-active"> Ofertas del dia</a></li>
+    <li > <a [routerLink]="['/explore', 'Todos&']" routerLinkActive="router-link-active" (click) = standardResults()> Explorar</a></li>
+    <li > <a [routerLink]="['/admin/products']" routerLinkActive="router-link-active">  Categorias</a></li>
     <li > <a [routerLink]="['/aboutUs']" routerLinkActive="router-link-active"> Contáctanos</a></li>
   </ul>
 </nav>

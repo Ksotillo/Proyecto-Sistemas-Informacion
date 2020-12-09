@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'searchresults-table',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SearchresultsTableComponent implements OnInit {
 
   constructor() { }
-
+  @Input() listToDisplay: Array<Product>
   ngOnInit(): void {
   }
 
