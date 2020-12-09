@@ -85,7 +85,7 @@ export class ProductFormComponent implements OnInit {
   */
 
   onSubmit(): void {
-    if(this.imageURL) {
+    if(this.imageURL && this.productForm.get('title').value.trim() != "" && this.productForm.get('description').value.trim() != "" && this.productForm.get('price').value > 0 && this.productForm.get('weight').value > 0 && this.productForm.get('weight').value <= 2 && this.productForm.get('weight').value % 0.05 == 0 && this.productForm.get('stock').value >= 0)  {
       this.imageURL.subscribe((response) => {
 
         const dataProduct: Product = {
@@ -105,7 +105,7 @@ export class ProductFormComponent implements OnInit {
         this.createProduct(dataProduct);
       });
     }
-    else if(this.editProduct) {
+    else if(this.editProduct && this.productForm.get('title').value.trim() != "" && this.productForm.get('description').value.trim() != "" && this.productForm.get('price').value > 0 && this.productForm.get('weight').value > 0 && this.productForm.get('weight').value <= 2 && this.productForm.get('weight').value % 0.05 == 0 && this.productForm.get('stock').value >= 0) {
       this.editProduct = {
         title: this.productForm.get('title').value,
         description: this.productForm.get('description').value,

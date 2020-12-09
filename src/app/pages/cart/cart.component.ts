@@ -54,6 +54,12 @@ export class CartComponent implements OnInit {
     })
   }
 
+  goToCheckout(): void{
+    this.routeHelp.navigateByUrl("checkout-init")
+  }
+  bagOutManager(bagIN:Bag) : void{
+    this.currentBag = bagIN;
+  }
   routeToExplore(): void{
     this.routeHelp.navigateByUrl("/explore/")
   }

@@ -51,6 +51,10 @@ import { CartProductViewElementComponent } from './components/cart-product-view-
 import { MainTitleComponent } from './components/homepage/main-title/main-title.component';
 import { ProductCardComponent } from './components/homepage/product-card/product-card.component';
 import { FeaturedProductsComponent } from './components/homepage/featured-products/featured-products.component';
+import { NavbarBackComponent } from './components/navbar-back/navbar-back.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductViewComponent } from './components/explore/product-view/product-view.component';
+import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +96,10 @@ import { FeaturedProductsComponent } from './components/homepage/featured-produc
     MainTitleComponent,
     ProductCardComponent,
     FeaturedProductsComponent,
+    NavbarBackComponent,
+    FooterComponent,
+    ProductViewComponent,
+    ProductViewPageComponent,
   ],
   imports: [
     BrowserModule,

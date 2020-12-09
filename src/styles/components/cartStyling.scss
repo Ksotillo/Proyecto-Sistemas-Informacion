@@ -21,9 +21,42 @@
     margin-top: 2.5vh;
     display: flex;
     flex-wrap: wrap;
+    @include breakpoint (large-tablet){
+        min-width: 80%;
+        justify-content: center;
+    }
 }
 .cartBagView-List{
     flex: 1;
+    margin-left: 2vw;
+    @include breakpoint (large-tablet){
+        min-width: 80%;
+        max-width: 80%;
+        margin-left: 0;
+    }
+    
+}
+.cartBagView-Element{
+    border: 0.5px solid $medium-gray;
+    width: 100%;
+    color: $black;
+    font-family: lato,sans-serif;
+    font-size: $lato-text;
+    display: flex;
+    align-items: center;
+    padding: 5%;
+    padding-left: 10%;
+    transition: background-color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+    &:hover{
+        background-color: $white;
+    }
+    p{
+        margin-bottom: 0;
+    }
+    
 }
 .cartProductView{
     padding: 5%;
@@ -56,15 +89,45 @@
         font-family: lato,sans-serif;
         .textDescription-productTitle{
             font-size: $lato-subtitle;
+            @include breakpoint(medium-phone) {
+                font-size: $lato-text;
+            }
         }
         .textDescription-productInfo{
             font-size: $lato-text;
+            @include breakpoint(medium-phone) {
+                font-size: $lato-small-text;
+            }
         }
     }
 }
 
 
-
+.cart-genericButton{
+    width: 15%;
+    float: right;
+    margin: 5vh;
+    min-width: 150px;
+    @include breakpoint(medium-phone) {
+        width: 50%;
+    }
+    button{
+        width: 100%;
+        background-color: $orange-light;
+        border: hidden;
+        font-family: lato, sans-serif;
+        font-size: $lato-text;
+        padding: 0 1rem;
+        border-radius: 5px;
+        filter: drop-shadow(0px 2px 4px #000);
+        transition: background-color;
+        transition-duration: 0.75s;
+        transition-timing-function: ease-in-out;
+        &:hover{
+            background-color: darken($color: $orange-light, $amount: 10)
+        };
+    }
+}
 
 
 .errorMessage{

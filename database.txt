@@ -1,0 +1,1 @@
+{"movies": [{"codigo": 4561, "title": "Lord of the Flies", "alquiler": 10, "socio": "", "dead": ""}], "codeIndex": [{"element": 4561, "index": 0}], "titleIndex": [{"element": "Flies", "index": 0}, {"element": "Lord", "index": 0}, {"element": "of", "index": 0}, {"element": "the", "index": 0}]}
