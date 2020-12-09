@@ -82,3 +82,8 @@
     background-color: $orange;
     text-decoration: underline;
 }
+.texty{
+    &:hover{
+        text-decoration: underline;
+    }
+}

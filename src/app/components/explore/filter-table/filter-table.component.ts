@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'filter-table',
@@ -7,10 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FilterTableComponent implements OnInit {
 @Input() category: string
+@Output() settingsOUT = new EventEmitter<string>()
   settings: string = ''
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  sendSettings(str: string){
+    console.log('O m g ')
+    this.settingsOUT.emit(str)
+    this.settings = str
+  }
+  pSettings(){
+
+  }
 }

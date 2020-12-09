@@ -2,17 +2,11 @@
     <form class="filterTable-Form">
         <div>Filtros de Búsqueda:</div>
         <div>Buscar por precio: </div>
-        <div> Menor a 10$</div>
-        <div> De 10$ a 20$</div>
-        <div> De 20$ a 30$</div>
-        <div> Mayor a 30$</div>
-        <section class="priceManagers">
-        <input type="number" id="lowerBound" class="priceFilter" placeholder="Min">        
-        <label for = "lowerBound"> $</label>
-        <input type="number" id="upperBound" class="priceFilter" placeholder="Max">
-        <label for = "upperBound">$</label>
-        <button class="formContainer-btn-add" type="submit"> Ir</button>
-        </section>
-        <div> Categoria: {{category}}</div>    
+        <div (click) = "sendSettings('0-10')" class="texty"> Menor a 10$</div>
+        <div (click) = "sendSettings('10-20')"class="texty"> De 10$ a 20$</div>
+        <div (click) = "sendSettings('20-30')"class="texty"> De 20$ a 30$</div>
+        <div (click) = "sendSettings('30-100')"class="texty"> Mayor a 30$</div>
+        <div> Categoria: {{category}}</div>
+        <div> Rango: {{settings}}</div>    
     </form>
 </div>
