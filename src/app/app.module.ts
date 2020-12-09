@@ -49,6 +49,9 @@ import { CartBagViewComponent } from './components/cart-bag-view/cart-bag-view.c
 import { CartProductViewComponent } from './components/cart-product-view/cart-product-view.component';
 import { CartProductViewElementComponent } from './components/cart-product-view-element/cart-product-view-element.component';
 import { NavbarBackComponent } from './components/navbar-back/navbar-back.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductViewComponent } from './components/explore/product-view/product-view.component';
+import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +91,9 @@ import { NavbarBackComponent } from './components/navbar-back/navbar-back.compon
     CartProductViewComponent,
     CartProductViewElementComponent,
     NavbarBackComponent,
+    FooterComponent,
+    ProductViewComponent,
+    ProductViewPageComponent,
   ],
   imports: [
     BrowserModule,
