@@ -48,6 +48,9 @@ import { PaymentFinishComponent } from './pages/payment-finish/payment-finish.co
 import { CartBagViewComponent } from './components/cart-bag-view/cart-bag-view.component';
 import { CartProductViewComponent } from './components/cart-product-view/cart-product-view.component';
 import { CartProductViewElementComponent } from './components/cart-product-view-element/cart-product-view-element.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductViewComponent } from './components/explore/product-view/product-view.component';
+import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +89,9 @@ import { CartProductViewElementComponent } from './components/cart-product-view-
     CartBagViewComponent,
     CartProductViewComponent,
     CartProductViewElementComponent,
+    FooterComponent,
+    ProductViewComponent,
+    ProductViewPageComponent,
   ],
   imports: [
     BrowserModule,

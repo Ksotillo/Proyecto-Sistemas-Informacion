@@ -16,6 +16,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
 
 const routes: Routes = [
   {path: '', 
@@ -49,7 +50,10 @@ const routes: Routes = [
   {path: 'explore/:userInput',
   component:ExploreComponent},  
   {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]},
-  {path: 'mycart', component: CartComponent, canActivate: [UserAuthGuard]}
+  {path: 'mycart', component: CartComponent, canActivate: [UserAuthGuard]},
+  {path: 'explore/product/:product',
+  component:ProductViewPageComponent},  
+  {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]}
 ];
 
 @NgModule({
