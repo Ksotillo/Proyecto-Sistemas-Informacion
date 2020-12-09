@@ -84,6 +84,10 @@
 }
 .texty{
     &:hover{
+        cursor: pointer;
         text-decoration: underline;
+    }
+    &:active{
+        color: lighten($color: $purewhite, $amount: 10);
     }
 }
