@@ -106,9 +106,14 @@ export class ProductViewComponent implements OnInit {
         });
       }
 
-      /*for (let i = 0; i < this.userCart.products.length; i++) {
-        if (this.userCart.products[i].bagContents)
-      }*/
+      for (let i = 0; i < this.userCart.products.length; i++) {
+        if (this.userCart.products[i].bagContents.find((product) => {return product.productTitle == this.productID})) {
+          this.stockAvailable = this.stockAvailable - this.userCart.products[i].bagContents.find((product) => {return product.productTitle == this.productID})['productAmount']
+        }
+        else {
+          continue;
+        }
+      }
       this.currentBag = this.userCart.products[0];
     });
   }
