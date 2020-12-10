@@ -5,6 +5,7 @@ import { Categories } from 'src/app/models/categories';
 import { Product } from 'src/app/models/product';
 import { CategoriesService } from 'src/app/service/admin-crud/categories.service';
 import { ProductosService } from 'src/app/services/admin-crud/productos.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-explore',
@@ -20,7 +21,7 @@ export class ExploreComponent implements OnInit {
   userInputS: string[]= []
   category: string = ''
   precios: string = ''
-  constructor(private router: ActivatedRoute, private productService: ProductosService, private categoryService: CategoriesService){ }
+  constructor(private router: ActivatedRoute, private productService: ProductosService, private categoryService: CategoriesService, private Auth: AuthenticationService){ }
 
   ngOnInit(): void {
     var linkData: string
@@ -31,6 +32,9 @@ export class ExploreComponent implements OnInit {
       console.log(this.userInput)
       this.showAllProducts()
     })
+  }
+  isAuth(): boolean{
+    return this.Auth.isAuthenticated();
   }
   showAllProducts(){
     this.listToDisplay = []

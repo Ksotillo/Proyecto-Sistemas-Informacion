@@ -55,8 +55,13 @@ import { NavbarBackComponent } from './components/navbar-back/navbar-back.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductViewComponent } from './components/explore/product-view/product-view.component';
 import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
+import { WishListComponent } from './pages/wish-list/wish-list.component';
+import { WishListTableComponent } from './components/wish-list-table/wish-list-table.component';
+import { WishListProductComponent } from './components/wish-list-product/wish-list-product.component';
 import { InvoiceDescriptionBagComponent } from './components/invoiceDescriptionComponents/invoice-description-bag/invoice-description-bag.component';
 import { InvoiceDescriptionProductComponent } from './components/invoiceDescriptionComponents/invoice-description-product/invoice-description-product.component';
+import { CartViewComponent } from './components/explore/product-view/cart-view/cart-view.component';
+import { CartFormComponent } from './components/explore/product-view/cart-form/cart-form.component';
 
 @NgModule({
   declarations: [
@@ -102,8 +107,13 @@ import { InvoiceDescriptionProductComponent } from './components/invoiceDescript
     FooterComponent,
     ProductViewComponent,
     ProductViewPageComponent,
+    WishListComponent,
+    WishListTableComponent,
+    WishListProductComponent,
     InvoiceDescriptionBagComponent,
     InvoiceDescriptionProductComponent,
+    CartViewComponent,
+    CartFormComponent,
   ],
   imports: [
     BrowserModule,

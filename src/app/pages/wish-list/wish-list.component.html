@@ -1,0 +1,30 @@
+<nav-bar></nav-bar>
+<div class="cartBody">
+    <div class="cartTitle">
+        <p>Carrito de Compra:</p>
+    </div>
+    <div >
+        <div class="cartDescription">
+            <div class="cartBagView-List">               
+            </div>
+            <div class="cartProductView" *ngFor="let product of productList">
+                <wish-list-product [product] = "product"></wish-list-product>
+            </div>
+        </div>
+        <div class="cart-genericButton">
+            <button>Com</button>
+        </div>
+        <div class="errorMessage" >
+            <div class="errorMessage-Image">
+                <img src="/assets/icons8-poison.svg" alt="PoisonImage">
+            </div>
+            <div class="errorMessage-Text">
+                <p>ista Vacía</p>
+            </div>
+            <div class="errorMessage-Prompt">
+                <button></button>
+            </div>
+            
+        </div>
+    </div>
+</div>

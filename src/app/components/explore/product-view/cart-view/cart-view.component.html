@@ -1,0 +1,26 @@
+<div class="cart-view">
+    <table class="cart">
+        <thead>
+            <tr>
+                <th scope="col">Carrito</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr type="button" *ngFor="let bag of cart.products">
+                Bolsa {{cart.products.indexOf(bag) + 1}}
+            </tr>
+        </tbody>
+    </table>
+    <table class="bag">
+        <thead>
+            <tr>
+                <th scope="col">Bolsa actual</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bag of currentBag.bagContents">
+                <span>{{bag.productTitle}}</span><span> x{{bag.productAmount}}</span>
+            </tr>
+        </tbody>
+    </table>
+</div>

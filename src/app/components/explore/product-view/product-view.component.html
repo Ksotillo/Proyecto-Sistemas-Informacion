@@ -1,5 +1,5 @@
-<div *ngIf="!loading&&product">
-    <h1>{{product.title}}</h1>
+<h1>{{product.title}}</h1>
+<div *ngIf="!loading&&product" style="display: inline-flex; justify-content: space-between;">
     <div style="display: inline-flex; justify-content: space-between;">
         <img
         [src]="product.image"
@@ -13,5 +13,8 @@
             </ul>
             <p>{{product.description}}</p>
         </div>
+    </div>
+    <div *ngIf="currentUserID&&userCart&&currentBag">
+        <app-cart-view [cart]="userCart" [currentBag]="currentBag"></app-cart-view>
     </div>
 </div>
