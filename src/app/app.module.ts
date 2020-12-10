@@ -58,6 +58,8 @@ import { ProductViewPageComponent } from './pages/product-view-page/product-view
 import { WishListComponent } from './pages/wish-list/wish-list.component';
 import { WishListTableComponent } from './components/wish-list-table/wish-list-table.component';
 import { WishListProductComponent } from './components/wish-list-product/wish-list-product.component';
+import { InvoiceDescriptionBagComponent } from './components/invoiceDescriptionComponents/invoice-description-bag/invoice-description-bag.component';
+import { InvoiceDescriptionProductComponent } from './components/invoiceDescriptionComponents/invoice-description-product/invoice-description-product.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +108,8 @@ import { WishListProductComponent } from './components/wish-list-product/wish-li
     WishListComponent,
     WishListTableComponent,
     WishListProductComponent,
+    InvoiceDescriptionBagComponent,
+    InvoiceDescriptionProductComponent,
   ],
   imports: [
     BrowserModule,

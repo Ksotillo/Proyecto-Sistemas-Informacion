@@ -19,6 +19,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { PaymentInitComponent } from './pages/payment-init/payment-init.component';
 import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
 import { WishListComponent } from './pages/wish-list/wish-list.component';
+import { PaymentFinishComponent } from './pages/payment-finish/payment-finish.component';
 
 const routes: Routes = [
   {path: '', 
@@ -61,7 +62,8 @@ const routes: Routes = [
     path: 'myWishList',
     component:WishListComponent,
     canActivate: [AdminAuthGuard]
-  }
+  },
+  {path:'checkout-Finish/:invoiceId', component:PaymentFinishComponent}
 ];
 
 @NgModule({

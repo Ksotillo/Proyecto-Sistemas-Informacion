@@ -1,2 +1,44 @@
 <app-navbar-back></app-navbar-back>
-<p>payment-init works!</p>
+<div class="paymentInit-Form">
+    <form [formGroup] = "paymentForm" class="paymentInit-FormContainer">
+        <div class="paymentForm-FieldGroup">
+            <div class="paymentForm-subtitle">
+                <p>Método de Pago</p>
+            </div>
+            <div class="paymentForm-formField">
+                <input class="custom-radio-Button" type="radio" name="paymentMethod" formControlName = "paymentMethod" id="payment2" value="Store">
+                <span class="custom-radioControl"></span>
+                <label class="paymentForm-label" for = "payment2">Pago en la Tienda</label>
+            </div>
+
+            <div class="paymentForm-formField">
+                <input class="custom-radio-Button" type="radio" name="paymentMethod" formControlName = "paymentMethod" id="payment3" value="Transfer">
+                <span class="custom-radioControl"></span>
+                <label class="paymentForm-label" for = "payment3">Transferencia</label>
+            </div>
+        </div>
+        <div class="paymentForm-FieldGroup">
+            <div class="paymentForm-subtitle">
+                <p>Método de Envío</p>
+            </div>
+            <div class="paymentForm-formField">
+                <input class="custom-radio-Button" type="radio" name="deliveryMethod" formControlName = "deliveryMethod" id="delivery1" value="Pickup">
+                <span class="custom-radioControl"></span>
+                <label class="paymentForm-label" for = "delivery1">Pickup</label>
+            </div>
+
+            <div class="paymentForm-formField">
+                <input class="custom-radio-Button" type="radio" name="deliveryMethod" formControlName = "deliveryMethod" id="delivery2" value="Delivery">
+                <span class="custom-radioControl"></span>
+                <label class="paymentForm-label" for = "delivery2">Delivery</label>
+            </div>
+        </div>
+        
+        <button (click) = "payMethod()" class="paymentButton" *ngIf="this.paymentForm.get('paymentMethod').value != '' && this.paymentForm.get('deliveryMethod').value != '' ">Realizar Pago</button>
+        <div class="paypalButtons"> 
+            <div #paypal></div>
+        </div>
+
+        <div class="paymentInit-ErrorMesage"><p>{{this.errorMSG}}</p></div>
+    </form>
+</div>
