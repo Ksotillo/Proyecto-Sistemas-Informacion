@@ -1,0 +1,166 @@
+.productView{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5vh;
+    .productView-Image{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: lighten($color:$red-lighter, $amount: 20);
+        margin-left: 2vw;
+        transition: background-color;
+        transition-duration: 0.75s;
+        transition-timing-function: ease-in-out;
+        &:hover{
+            background-color: $red-lighter;
+        }
+    }
+    .productView-Description{
+        margin-left: 5%;
+        flex: 1;
+        font-family: lato, sans-serif;
+        .productDescription-Title{
+            text-align: center;
+            font-size: $lato-subtitle;
+        }
+        .productDescription-Field{
+            font-size: $josefin-small-text;
+            text-align: justify;
+        }
+    }
+    .productView-Cart{
+        margin-right: 5vw;
+        flex: 1;
+    }
+}
+
+.cartTable{
+    padding: 10px;
+    width: 100%;
+
+}
+.bagTable{
+    width: 100%;
+    margin-top: 5vh;
+}
+.tableHeader{
+    font-family: "Josefin Sans",sans-serif;
+    font-size: $josefin-text;
+    text-align: center;
+    background-color: $red-dark;
+    transition: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    color: $purewhite;
+    &:hover{
+        background-color: lighten($color:$red-dark, $amount: 5)
+    }
+    border: solid 0.5px $medium-gray;
+    cursor: pointer;
+}
+.productCartbag{
+    font-family: lato,sans-serif;
+    font-size: $lato-text;
+    padding-left: 5%;
+    transition: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    &:hover{
+        background-color: $white;
+    }
+    border: solid 0.5px $medium-gray;
+    cursor: pointer;
+}
+.productCartbag--active{
+    font-family: lato,sans-serif;
+    font-size: $lato-text;
+    padding-left: 5%;
+    background-color: $orange-light;
+    transition: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    &:hover{
+        background-color: darken($orange-light,10);
+    }
+    border: solid 0.5px $medium-gray;
+    cursor: pointer;
+}
+.productCartcurrentProd{
+    font-family: lato,sans-serif;
+    font-size: $lato-text;
+    text-align: center;
+    transition: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    &:hover{
+        background-color: $white;
+    }
+    border: solid 0.5px $medium-gray;
+}
+.outOfStockMessage{
+    font-family: lato,sans-serif;
+    font-size: $lato-text;
+    font-weight: bold;
+    color: $red-dark;
+}
+.quantityControl{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .quantityControlArrow{
+        color: $white;
+        background-color: $red-darkest;
+        font-weight: bold;
+        width: 25px;
+        font-family: "Josefin Sans";
+        text-align: center;
+        margin: 0 10px;
+        transition-timing-function: ease-in-out;
+        transition-property: background-color;
+        transition-duration: 1s;
+        &:hover{
+            background-color: $red;
+        }
+    }
+    
+    p{
+        margin-bottom: 0;
+    }
+}
+.cartAfirmativeButton{
+    color: $black;
+    background-color: $orange-dark;
+    font-weight: bold;
+    width: fit-content;
+    font-family: lato,sans-serif;
+    text-align: center;
+    margin: 0 10px;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color;
+    transition-duration: 1s;
+    &:hover{
+        background-color: $orange-light;
+    }
+}
+.productCartBag-bagRemover{
+    color: $white;
+    background-color: $red;
+    font-weight: bold;
+    width: fit-content;
+    font-family: lato,sans-serif;
+    display: inline;
+    text-align: center;
+    margin: 0 10px;
+    font-size: $lato-small-text;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color;
+    transition-duration: 1s;
+    &:hover{
+        background-color: $red-light;
+    }
+}

@@ -62,6 +62,8 @@ import { InvoiceDescriptionBagComponent } from './components/invoiceDescriptionC
 import { InvoiceDescriptionProductComponent } from './components/invoiceDescriptionComponents/invoice-description-product/invoice-description-product.component';
 import { CartViewComponent } from './components/explore/product-view/cart-view/cart-view.component';
 import { CartFormComponent } from './components/explore/product-view/cart-form/cart-form.component';
+import { ProductViewCartbagComponent } from './components/product-view-cartbag/product-view-cartbag.component';
+import { ProductViewCartprodComponent } from './components/product-view-cartprod/product-view-cartprod.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +116,8 @@ import { CartFormComponent } from './components/explore/product-view/cart-form/c
     InvoiceDescriptionProductComponent,
     CartViewComponent,
     CartFormComponent,
+    ProductViewCartbagComponent,
+    ProductViewCartprodComponent,
   ],
   imports: [
     BrowserModule,

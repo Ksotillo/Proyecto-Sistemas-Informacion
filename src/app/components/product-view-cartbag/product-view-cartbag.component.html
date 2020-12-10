@@ -1,0 +1,6 @@
+<div class="productCartbag" (click) = 'emitBag()' *ngIf="this.actualBag != this.bagShow">
+    <p>Bolsita Número: {{this.bagIndex}}</p> <button class="productCartBag-bagRemover" (click) = killBag()>X</button>
+</div>
+<div class="productCartbag--active" (click) = 'emitBag()' *ngIf="this.actualBag == this.bagShow">
+    <p>Bolsita Número: {{this.bagIndex}}</p> <button class="productCartBag-bagRemover" (click) = killBag()>X</button>
+</div>

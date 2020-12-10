@@ -1,20 +1,29 @@
-<h1>{{product.title}}</h1>
-<div *ngIf="!loading&&product" style="display: inline-flex; justify-content: space-between;">
-    <div style="display: inline-flex; justify-content: space-between;">
-        <img
-        [src]="product.image"
-        alt="product image">
-        <div>
+
+<div class ='productView'  *ngIf="product" >
+    <div class="productView-Image">
+        <img [src]="product.image" alt="Imagen de una Golosina Deliciosa">
+    </div>
+    <div class="productView-Description">
+        <div class="productDescription-Title">
+            <p>{{product.title}}</p>
+        </div>
+        <div class="productDescription-Field">
             <p>Precio: ${{product.price}}</p>
+        </div>
+        <div class="productDescription-Field">
             <p>Peso: {{product.weight}} Kg</p>
+        </div>
+        <div class="productDescription-Field">
             <p>Categorías:</p>
-            <ul *ngFor="let category of categories">
-                <li>{{category.name}}</li>
+            <ul>
+                <li *ngFor="let category of categories">{{category.name}}</li>
             </ul>
+        </div>
+        <div class="productDescription-Field">
             <p>{{product.description}}</p>
         </div>
     </div>
-    <div *ngIf="currentUserID&&userCart&&currentBag">
-        <app-cart-view [cart]="userCart" [currentBag]="currentBag"></app-cart-view>
+    <div class="productView-Cart" *ngIf="currentUserID&&userCart">
+        <app-cart-view [cart]="userCart"  [stockLimit] = 'this.stockAvailable' [currentProduct] = 'this.product'  (bagKillAproved) = 'eliminateBag($event)' ></app-cart-view>
     </div>
 </div>

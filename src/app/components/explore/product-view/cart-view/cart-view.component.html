@@ -1,26 +1,37 @@
 <div class="cart-view">
-    <table class="cart">
-        <thead>
+    <table class="cartTable">
+        <thead class="tableHeader">
             <tr>
                 <th scope="col">Carrito</th>
             </tr>
         </thead>
         <tbody>
-            <tr type="button" *ngFor="let bag of cart.products">
-                Bolsa {{cart.products.indexOf(bag) + 1}}
+            <tr *ngFor="let bag of cart.products">
+                <app-product-view-cartbag  [bagShow] = 'bag' [actualBag] = 'currentBag' [allBags] = 'this.cart.products' (bagOUT) = 'bagOutManager($event)' (bagOUTELIMINATION) = 'bagKillManager($event)'></app-product-view-cartbag>
             </tr>
         </tbody>
     </table>
-    <table class="bag">
-        <thead>
+    <button (click) = 'addBag()' class= "cartAfirmativeButton">Crear Bolsita</button>
+    <table class="bagTable">
+        <thead class="tableHeader">
             <tr>
                 <th scope="col">Bolsa actual</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let bag of currentBag.bagContents">
-                <span>{{bag.productTitle}}</span><span> x{{bag.productAmount}}</span>
-            </tr>
+            <div *ngIf="this.currentBag">
+                <tr *ngFor="let productToShow of currentBag.bagContents">
+                    <app-product-view-cartprod [productShow] = 'productToShow'></app-product-view-cartprod>
+                </tr>
+            </div>
         </tbody>
     </table>
+    <div class="quantityControl" *ngIf = 'this.stockLimit != 0'>
+        <button class="quantityControlArrow" *ngIf="this.productAmount != 0" (click) = 'reduceLimit()'><</button>
+        <div class="quantityControlDisplay"><p>{{this.productAmount}}</p></div>
+        <button class="quantityControlArrow" *ngIf="this.productAmount != this.stockLimit" (click) = 'incrementLimit()'>></button>
+        <button class="cartAfirmativeButton" (click) = 'addProducts()'>Añadir Productos</button>
+    </div>
+    <div class="generalErrorMessage">{{this.errorMessage}}</div>
+    <div class="outOfStockMessage" *ngIf = 'this.stockLimit == 0'><p>No puede adquirir más unidades de este producto actualmente</p></div>
 </div>
