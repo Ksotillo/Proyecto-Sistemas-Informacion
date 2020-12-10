@@ -55,6 +55,9 @@ import { NavbarBackComponent } from './components/navbar-back/navbar-back.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductViewComponent } from './components/explore/product-view/product-view.component';
 import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
+import { WishListComponent } from './pages/wish-list/wish-list.component';
+import { WishListTableComponent } from './components/wish-list-table/wish-list-table.component';
+import { WishListProductComponent } from './components/wish-list-product/wish-list-product.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +103,9 @@ import { ProductViewPageComponent } from './pages/product-view-page/product-view
     FooterComponent,
     ProductViewComponent,
     ProductViewPageComponent,
+    WishListComponent,
+    WishListTableComponent,
+    WishListProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -32,6 +32,24 @@
 .priceManagers{
     display: block;
 }
+.btnholder-wishList{
+    width: 15%;
+    height: 20%;
+    margin-top: 3%;
+    margin-left: 5%;
+    a{
+        text-decoration: none;
+        color: $black;
+        &hover{
+            text-decoration: none;
+        }
+    }
+}
+.wishList-btn{
+    width: 100%;
+    margin-top: 3%;
+    margin-left: 5%;
+}
 .searchresult-table{
     width: 60%;
 }

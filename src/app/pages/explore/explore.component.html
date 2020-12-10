@@ -2,4 +2,14 @@
 <main class="gridContainer">
 <filter-table (settingsOUT) = "searchWithSettings($event)" [category] = "category"></filter-table>
 <searchresults-table [listToDisplay] = "listToDisplay" class="searchresult-table"></searchresults-table>
+<div class="btnholder-wishList">
+    <button class="formContainer-btn-add btn-form wishList-btn" *ngIf="isAuth()">
+    <a [routerLink]="['/myWishList']" routerLinkActive="router-link-active"> Ir a Lista de deseos 
+    </a>
+    </button>
+<button class="formContainer-btn-add btn-form wishList-btn" *ngIf="isAuth()"  > 
+    <a [routerLink]="['/mycart']" routerLinkActive="router-link-active">Ir al Carrito 
+    </a>
+</button>
+</div>
 </main>
