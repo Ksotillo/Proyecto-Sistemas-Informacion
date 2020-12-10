@@ -27,6 +27,7 @@ products: Array<Product>
           if (catValue.productsIds[0] == product.$key) {
             if (!this.products.includes(product)) {
               this.products.push(product)
+              this.products = this.products.slice(0,3);
             }
             
           }
