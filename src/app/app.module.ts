@@ -60,6 +60,8 @@ import { WishListTableComponent } from './components/wish-list-table/wish-list-t
 import { WishListProductComponent } from './components/wish-list-product/wish-list-product.component';
 import { InvoiceDescriptionBagComponent } from './components/invoiceDescriptionComponents/invoice-description-bag/invoice-description-bag.component';
 import { InvoiceDescriptionProductComponent } from './components/invoiceDescriptionComponents/invoice-description-product/invoice-description-product.component';
+import { CartViewComponent } from './components/explore/product-view/cart-view/cart-view.component';
+import { CartFormComponent } from './components/explore/product-view/cart-form/cart-form.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +112,8 @@ import { InvoiceDescriptionProductComponent } from './components/invoiceDescript
     WishListProductComponent,
     InvoiceDescriptionBagComponent,
     InvoiceDescriptionProductComponent,
+    CartViewComponent,
+    CartFormComponent,
   ],
   imports: [
     BrowserModule,
