@@ -73,7 +73,7 @@ export class AuthenticationService {
       }
 
       public isAdmin(): boolean {  
-        const adminArr: Array<string> = ['30258079@correo.unimet.edu.ve', 'alberto.carrillo@correo.unimet.edu.ve' , 'gomez.manuel@correo.unimet.edu.ve']
+        const adminArr: Array<string> = ['30258079@correo.unimet.edu.ve', 'alberto.carrillo@correo.unimet.edu.ve' , 'gomez.manuel@correo.unimet.edu.ve', 'nleal@correo.unimet.edu.ve', 'k.invernon2017@correo.unimet.edu.ve', 'dortega@unimet.edu.ve']
         console.log(JSON.parse(localStorage.getItem('currentUser'))['user'] ['email'])
         return adminArr.includes(JSON.parse(localStorage.getItem('currentUser'))['user'] ['email'])
       }
