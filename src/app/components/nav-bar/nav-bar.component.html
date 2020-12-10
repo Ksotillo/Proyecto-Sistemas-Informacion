@@ -25,7 +25,6 @@
        <img src="/assets/icons8-search.svg">
     </button>
   </form>
-  
   <div class="navBar-buttons" *ngIf="!isAuth()"><a class="navBar-registration" [routerLink]="['/login']" routerLinkActive="router-link-active"> Iniciar Sesión</a>
   <a class="navBar-registration" [routerLink]="['/signin']" routerLinkActive="router-link-active">Registrarse</a></div>
   <div class="navBar-buttons" *ngIf="isAuth()"><a class="navBar-registration" [routerLink]="['/userinfo/',this.userId]" routerLinkActive="router-link-active"> <img class="signedIcons" src="/assets/icons8-customer.svg" alt="User"> </a>
@@ -33,10 +32,9 @@
 </nav>
 <nav class="navBar-navLinks">
   <ul class="navBar-navLinks">
-    <li > <a [routerLink]="['/']" routerLinkActive="router-link-active"> Home</a></li>
+    <li > <a [routerLink]="['/']" routerLinkActive="router-link-active"> Página Principal</a></li>
+    <li > <a [routerLink]="['/explore', 'Todos&']" routerLinkActive="router-link-active" (click) = standardResults()> Explorar Catálogo</a></li>
     <li > <a [routerLink]="['/aboutUs']" routerLinkActive="router-link-active"> Acerca de Nosotros</a></li>
-    <li > <a [routerLink]="['/explore', 'Todos&']" routerLinkActive="router-link-active" (click) = standardResults()> Explorar</a></li>
-    <li > <a [routerLink]="['/admin/products']" routerLinkActive="router-link-active">  Categorias</a></li>
     <li *ngIf="isAuth()" > <a [routerLink]="['/myWishList']" routerLinkActive="router-link-active"> Lista de Deseos</a></li>
   </ul>
 </nav>

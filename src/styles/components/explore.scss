@@ -12,9 +12,18 @@
     div{
         padding: 5px;
     }
+    @include breakpoint(large-phone){
+        padding: 0;
+        margin: 0;
+        margin-top: 5%;
+        height: 100%;
+    }
 }
 .gridContainer{
-    display: flex
+    display: flex;
+    @include breakpoint(large-phone){
+        display: block;
+    }
 }
 .searchResults-response{
     padding-left: 25px;
@@ -28,6 +37,12 @@
     align-items: center;
     justify-self: start;
     font-family: lato,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @include breakpoint(large-phone){
+        height: 40%;
+        margin: 0%;
+        display: flex;
+        justify-content: center;
+    }
 }
 .priceManagers{
     display: block;
@@ -44,6 +59,10 @@
             text-decoration: none;
         }
     }
+    @include breakpoint(large-phone){
+        display: none;
+    }
+    display: none;
 }
 .wishList-btn{
     width: 100%;
@@ -52,6 +71,28 @@
 }
 .searchresult-table{
     width: 60%;
+    @include breakpoint(large-phone){
+        display: block;
+        margin: 0;
+        width: 90%;
+        padding: 0;
+    }
+}
+ul.searchResults{
+    @include breakpoint(large-phone){
+        padding: 0;
+        li{
+            margin-bottom: 10%;
+        }
+        button{
+            @include breakpoint(large-phone){
+                height: 50%;
+                width: 90%;
+                margin: 0%;
+                padding: 0;
+            }
+        }
+    }
 }
 .priceFilter{
     border-radius: 5px;
@@ -63,6 +104,9 @@
     height: 7px;   
     background-color: $white;
     margin-left: 25px;
+    @include breakpoint(large-phone){
+        width: 90%;
+    }
 }
 .searchResults-productTitle{
     font-size: $lato-button;
@@ -74,8 +118,11 @@
     font-family: poppins,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: $lato-small-text;
     list-style: none;
+    margin: 0;
+
     li{
         width: 100%;
+        margin: 5%;
     }
     button{
         
@@ -105,7 +152,11 @@
             transition-duration: 0.25s;
             transition-timing-function: ease-in-out;
         }
-
+        @include breakpoint(large-phone){
+            display: block;
+            width: 100%;
+            padding: 0%;
+        }
     }
 }
 .searchResults-description{

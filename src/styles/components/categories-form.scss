@@ -10,7 +10,9 @@
     align-items: center;
     width: 99%;
     font-family: lato,sans-serif;
-    
+    @include breakpoint(average-tablet){
+        display: block;
+    }
 }
 .formContainer{
     display: flex;
@@ -19,6 +21,9 @@
     border: 1px outset $black;
     border-radius: 5px;
     border-style: ridge;
+    @include breakpoint(average-tablet){
+        width: 90%;        
+    }
 }
 .adminSide-btnContainer{
     padding: 5px;
@@ -26,6 +31,15 @@
         padding-right: 100px;
     }
 }
+.dropdown-btn .supercat{
+    position: absolute;
+    display: inline-block;
+    background-color: $red;
+    &:hover{
+        display: block;
+    }
+}
+
 .btn-holder{
     display: flex;
     justify-content: space-between;
@@ -77,6 +91,9 @@
 .adminTable-mainPage{
     display: flex;
     justify-content: space-between;
+    @include breakpoint(average-tablet){
+        display: block;
+    }
 }
 .fomrContainer-subtitle{
     padding: 5px;
@@ -86,6 +103,10 @@
     border: 1px outset $black;
     border-radius: 5px;
     padding: 5px 0px;
+    @include breakpoint(average-tablet){
+        width: 90%;
+        
+    }
 }
 
 .adminSide-btnContainer{

@@ -1,20 +1,10 @@
 <div class="adminSide">
-    <div class="adminSide-SearchFilters">
-        <div class="adminSide-btn">
-            <button class="ghost" ></button> 
-            <button class="ghost"></button></div>
-        <div class="searchBar categories-searchBar"><input type="text" placeholder="Buscar" > <img src="/assets/icons8-search.svg"></div>
-        <div class="adminSide-filters">
-            <div class="adminSide-btnContainer"><button type="menu">Categoria</button></div>
-            <div class="adminSide-btnContainer"><button type="menu"> Ordenar por: </button></div>
-        </div>
-    </div>
     <div class="adminSide-cardSlider">
         <!--Hacer ngFor de las categorias creadas-->
         <ul>
             <button type="button" *ngFor="let category of categories"class="cardSlider-Link" (click) = showCurrent(category) >
-            <div>{{category.name}}</div>                  
+            <div> Categoria: {{category.name}}</div>                  
             </button>
         </ul>
     </div>
-    </div>
+</div>
