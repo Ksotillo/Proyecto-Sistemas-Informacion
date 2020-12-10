@@ -2,7 +2,11 @@
     <form [formGroup]="CategoryForm" (ngSubmit) = "onSubmit()" class="needs-validation">
         <div *ngIf="selected()">
             <div class="btn-holder">
-                <button type="button" class=" formContainer-btn-add btn-form" (click)= deselect()> Deseleccionar</button>
+                <button type="button"
+                 class=" formContainer-btn-add btn-form" 
+                 (click)= deselect()> 
+                 Deseleccionar
+                </button>
                 <div >
                     <button type="button" class=" formContainer-btn-add btn-form" (click)= allowEditing()> Editar</button>
                 </div>

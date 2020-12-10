@@ -1,5 +1,5 @@
 <nav-bar></nav-bar>
 <main class="gridContainer">
-<filter-table (settings) = "searchWithSettings($event)" [category] = "category"></filter-table>
+<filter-table (settingsOUT) = "searchWithSettings($event)" [category] = "category"></filter-table>
 <searchresults-table [listToDisplay] = "listToDisplay" class="searchresult-table"></searchresults-table>
 </main>

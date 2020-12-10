@@ -48,6 +48,9 @@ import { PaymentFinishComponent } from './pages/payment-finish/payment-finish.co
 import { CartBagViewComponent } from './components/cart-bag-view/cart-bag-view.component';
 import { CartProductViewComponent } from './components/cart-product-view/cart-product-view.component';
 import { CartProductViewElementComponent } from './components/cart-product-view-element/cart-product-view-element.component';
+import { MainTitleComponent } from './components/homepage/main-title/main-title.component';
+import { ProductCardComponent } from './components/homepage/product-card/product-card.component';
+import { FeaturedProductsComponent } from './components/homepage/featured-products/featured-products.component';
 import { NavbarBackComponent } from './components/navbar-back/navbar-back.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductViewComponent } from './components/explore/product-view/product-view.component';
@@ -92,6 +95,9 @@ import { InvoiceDescriptionProductComponent } from './components/invoiceDescript
     CartBagViewComponent,
     CartProductViewComponent,
     CartProductViewElementComponent,
+    MainTitleComponent,
+    ProductCardComponent,
+    FeaturedProductsComponent,
     NavbarBackComponent,
     FooterComponent,
     ProductViewComponent,
