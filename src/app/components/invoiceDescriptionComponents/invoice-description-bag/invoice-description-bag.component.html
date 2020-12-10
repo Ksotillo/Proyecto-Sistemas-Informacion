@@ -1,1 +1,6 @@
-<p>invoice-description-bag works!</p>
+<div class="descriptionBag-container" (click) = 'emitBag()' *ngIf="this.bagToShow != this.actualBag">
+    <p>Bolsita Número: {{this.bagNum}}</p>
+</div>
+<div class="descriptionBag-container--active" *ngIf="this.bagToShow == this.actualBag">
+    <p>Bolsita Número: {{this.bagNum}}</p>
+</div>

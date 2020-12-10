@@ -1,1 +1,14 @@
-<p>invoice-description-product works!</p>
+<div class="invoiceForm-productContainer" *ngIf="this.currentDetailedProduct">
+    <div class="invoiceFormProduct-productName">
+        <p>{{this.currentProduct.productTitle}}</p>
+    </div>
+    <div class="invoiceFormProductField">
+        <p>Cantidad Adquirida: {{this.currentProduct.productAmount}}</p>
+    </div>
+    <div class="invoiceFormProductField">
+        <p>Precio Unitario: {{this.currentDetailedProduct.price}}</p>
+    </div>
+    <div class="invoiceFormProductField">
+        <p>Precio Total: {{this.currentProduct.productAmount * this.currentDetailedProduct.price}}</p>
+    </div>
+</div>

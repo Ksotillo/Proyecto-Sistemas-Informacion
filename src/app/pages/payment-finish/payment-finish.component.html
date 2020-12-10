@@ -1,13 +1,26 @@
-<div class="invoiceDescription-View">
+<nav-bar></nav-bar>
+<div class="invoiceDescription-View" *ngIf="this.currentInvoice">
     <div class="invoiceDescription-Container">
         <div class="invoiceDescription-generalInfo">
-
-        </div>
-        <div class="invoiceDescription-Products">
-
+            <div class="invoiceDescription-Title">
+                <p>¡Gracias por su Compra!</p>
+            </div>
+            <div class="invoiceDescription-infoField">
+                <p>E-Mail del Cliente: {{this.currentInvoice.name}}</p>
+            </div>
+            <div class="invoiceDescription-infoField">
+                <p>Se generó un recibo por una compra de: {{this.currentInvoice.totalPrice}}$</p>
+            </div>
+            <div class="invoiceDescription-infoField">
+                <p>Tipo de Envío: {{this.currentInvoice.deliveryTipe}}</p>
+            </div>
         </div>
         <div class="invoiceDescription-Bags">
-
+            <app-invoice-description-bag *ngFor="let bag of this.currentInvoice.products" [bagToShow] = 'bag' [actualBag] = 'this.currentBag' [allBags] = 'this.currentInvoice.products' (bagOUT) = 'bagOUThandler($event)'></app-invoice-description-bag>
         </div>
+        <div class="invoiceDescription-Products">
+            <app-invoice-description-product *ngFor="let product of this.currentBag.bagContents" [currentProduct] = 'product' ></app-invoice-description-product>
+        </div>
+        
     </div>
 </div>

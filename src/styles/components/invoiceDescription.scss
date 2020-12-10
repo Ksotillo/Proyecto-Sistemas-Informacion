@@ -1,0 +1,144 @@
+.invoiceDescription-View{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: lato, sans-serif;
+    .invoiceDescription-Container{
+        margin-top: 5vh;
+        border: solid 0.5px $medium-gray;
+        margin-bottom: 5vh;
+        width: 75%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        @include breakpoint (large-tablet){
+            justify-content: center;
+        }
+        .invoiceDescription-generalInfo{
+            width: 100%;
+            text-align: center;
+            font-size: $lato-text;
+            .invoiceDescription-Title{
+                font-size: $lato-subtitle;
+                font-weight: bold;
+                color: $purewhite;
+                width: 100%;
+                background-color: $red-light;
+                transition: ease-in-out;
+                transition-property: background-color;
+                transition-duration: 0.5s;
+                &:hover{
+                    background-color: darken($color: $red-light, $amount: 10);
+                }
+                @include breakpoint(average-tablet){
+                    font-size: $lato-button;
+                }
+            }
+            .invoiceDescription-infoField{
+                @include breakpoint(average-tablet){
+                    font-size: $lato-small-text;
+                }
+            }
+        }
+        .invoiceDescription-Bags{
+            flex: 1;
+            width: 50%;
+            @include breakpoint(large-tablet){
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .descriptionBag-container{
+                font-size: $lato-small-text;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                width: 50%;
+                height: fit-content;
+                padding: 10px;
+                margin-left: 10%;
+                height: 2rem;
+                border: solid 0.5px $medium-gray;
+                border-radius: 25px;
+                transition: ease-in-out;
+                transition-property: background-color;
+                transition-duration: 0.5s;
+                margin-top: 5px;
+                @include breakpoint(large-tablet){
+                    width: 100%;
+                }
+                p{
+                    margin-bottom: 0;
+                }
+                &:hover{
+                    background-color: darken($color: $purewhite, $amount: 5);
+                }
+            }
+            .descriptionBag-container--active{
+                font-size: $lato-small-text;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                width: 50%;
+                height: fit-content;
+                padding: 10px;
+                margin-left: 10%;
+                height: 2rem;
+                border: solid 0.5px $medium-gray;
+                border-radius: 25px;
+                transition: ease-in-out;
+                transition-property: background-color;
+                transition-duration: 0.5s;
+                background-color: $orange;
+                margin-top: 5px;
+                p{
+                    margin-bottom: 0;
+                }
+                &:hover{
+                    background-color: lighten($color: $orange, $amount: 5);
+                }
+                @include breakpoint(large-tablet){
+                    width: 100%;
+                }
+            }
+        }
+        .invoiceDescription-Products{
+            flex:1;
+            width: 50%;
+            @include breakpoint (large-tablet){
+                min-width: 100%;
+            }
+            .invoiceForm-productContainer{
+                margin-right: 10%;
+                width: 80%;
+                transition: ease-in-out;
+                transition-property: background-color;
+                transition-duration: 0.5s;
+                background-color: $orange-light;
+                margin-top: 5px;
+                border-radius: 10px;
+                text-align: center;
+                &:hover{
+                    background-color: darken($color: $orange-light, $amount: 10);
+                }
+                .invoiceFormProduct-productName{
+                    font-size: $lato-button;
+                }
+                .invoiceFormProductField{
+                    font-size: $lato-small-text;
+                }
+                @include breakpoint (large-tablet){
+                    margin-right: 0;
+                    width: 100%;
+                    display: block;
+                }
+            }
+        }
+    }
+
+}
