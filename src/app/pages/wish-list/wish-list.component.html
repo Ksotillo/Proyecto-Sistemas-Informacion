@@ -7,22 +7,22 @@
         <div class="cartDescription">
             <div class="cartBagView-List">               
             </div>
-            <div class="cartProductView">
-                <wish-list-product></wish-list-product>
+            <div class="cartProductView" *ngFor="let product of productList">
+                <wish-list-product [product] = "product"></wish-list-product>
             </div>
         </div>
         <div class="cart-genericButton">
-            <button>Comprar</button>
+            <button>Com</button>
         </div>
         <div class="errorMessage" >
             <div class="errorMessage-Image">
                 <img src="/assets/icons8-poison.svg" alt="PoisonImage">
             </div>
             <div class="errorMessage-Text">
-                <p>¡Carrito Vacío!</p>
+                <p>ista Vacía</p>
             </div>
             <div class="errorMessage-Prompt">
-                <button>Llenar Carrito</button>
+                <button></button>
             </div>
             
         </div>

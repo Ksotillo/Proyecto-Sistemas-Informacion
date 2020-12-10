@@ -1,1 +1,13 @@
-<p>wish-list-product works!</p>
+<ul class="searchResuñts">
+<li *ngFor="let item of product">
+    <button>
+        <img src= {{item.image}}> 
+        <div class="searchResults-description">
+        <div class="searchResults-productTitle"> {{item.title}} </div>
+        <div> Precio: {{item.price}} $</div>
+        <div> Peso: {{item.weight}} Kg</div>
+        </div>
+    </button>
+    <div class="divider-h"></div>
+</li>
+</ul>
