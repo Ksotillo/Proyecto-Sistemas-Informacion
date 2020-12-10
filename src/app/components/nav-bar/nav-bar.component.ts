@@ -50,6 +50,11 @@ export class NavBarComponent implements OnInit {
       
     }
   }
+
+  default(){
+    this.currentCat = 'Todos';
+    document.getElementById('dropdown-items').classList.remove('show')
+  }
   getAllCategories():void{
     this.category.getAllCategories().subscribe((items) => 
     this.categories = items.map((item) =>({...item.payload.doc.data(),

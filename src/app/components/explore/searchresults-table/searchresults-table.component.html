@@ -3,13 +3,15 @@
     <p class="searchResults-productTitle searchResults-response" *ngIf="!noResults()"> Resultados de Busqueda: </p>
     <div class="divider-h"></div>
     <li *ngFor="let item of listToDisplay">
-    <button>
+    <button [routerLink]="['/explore/product', item.$key]"
+    routerLinkActive="router-link-active">
         <img src= {{item.image}}> 
         <div class="searchResults-description">
         <div class="searchResults-productTitle"> {{item.title}} </div>
         <div> Precio: {{item.price}} $</div>
         <div> Peso: {{item.weight}} Kg</div>
         </div>
+        
     </button>
     <div class="divider-h"></div>
     </li>

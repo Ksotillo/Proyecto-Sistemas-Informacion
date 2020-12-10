@@ -3,8 +3,9 @@
   
   <form [formGroup]="searchBar" (ngSubmit) = "onSubmit()" class="searchBar" >
     <div class="searchBar-dropdown" >
-      <button type="button" class="dropdown-btn" (click) = toggleFilter()>{{currentCat}}</button>
+      <button type="button" class="dropdown-btn"  (onpopstate) = default() (click) = toggleFilter()>{{currentCat}}</button>
       <nav class="dropdown-items" id="dropdown-items">
+        <div (click) = "default()"  ><a> Todos</a></div>
         <div *ngFor="let cat of categories" (click) = selectCat(cat)>
         <a>
           {{cat.name}}
@@ -36,6 +37,6 @@
     <li > <a [routerLink]="['/aboutUs']" routerLinkActive="router-link-active"> Acerca de Nosotros</a></li>
     <li > <a [routerLink]="['/explore', 'Todos&']" routerLinkActive="router-link-active" (click) = standardResults()> Explorar</a></li>
     <li > <a [routerLink]="['/admin/products']" routerLinkActive="router-link-active">  Categorias</a></li>
-    <li > <a [routerLink]="['/aboutUs']" routerLinkActive="router-link-active"> Contáctanos</a></li>
+    <li *ngIf="isAuth()" > <a [routerLink]="['/myWishList']" routerLinkActive="router-link-active"> Lista de Deseos</a></li>
   </ul>
 </nav>
