@@ -52,6 +52,8 @@ import { NavbarBackComponent } from './components/navbar-back/navbar-back.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductViewComponent } from './components/explore/product-view/product-view.component';
 import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
+import { InvoiceDescriptionBagComponent } from './components/invoiceDescriptionComponents/invoice-description-bag/invoice-description-bag.component';
+import { InvoiceDescriptionProductComponent } from './components/invoiceDescriptionComponents/invoice-description-product/invoice-description-product.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +96,8 @@ import { ProductViewPageComponent } from './pages/product-view-page/product-view
     FooterComponent,
     ProductViewComponent,
     ProductViewPageComponent,
+    InvoiceDescriptionBagComponent,
+    InvoiceDescriptionProductComponent,
   ],
   imports: [
     BrowserModule,

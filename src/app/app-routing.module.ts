@@ -18,6 +18,7 @@ import { AdminMethodsComponent } from './pages/admin-methods/admin-methods.compo
 import { CartComponent } from './pages/cart/cart.component';
 import { PaymentInitComponent } from './pages/payment-init/payment-init.component';
 import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
+import { PaymentFinishComponent } from './pages/payment-finish/payment-finish.component';
 
 const routes: Routes = [
   {path: '', 
@@ -55,7 +56,8 @@ const routes: Routes = [
   {path: 'checkout-init', component: PaymentInitComponent},
   {path: 'explore/product/:product',
   component:ProductViewPageComponent},  
-  {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]}
+  {path: 'admin/methods', component: AdminMethodsComponent, canActivate:[AdminAuthGuard]},
+  {path:'checkout-Finish/:invoiceId', component:PaymentFinishComponent}
 ];
 
 @NgModule({
